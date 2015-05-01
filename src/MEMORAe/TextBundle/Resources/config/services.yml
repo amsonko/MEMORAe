@@ -1,0 +1,4 @@
+services:
+#    memor_ae_text.example:
+#        class: MEMORAe\TextBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

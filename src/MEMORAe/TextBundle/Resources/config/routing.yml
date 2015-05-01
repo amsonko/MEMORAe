@@ -1,0 +1,5 @@
+memor_ae_text_homepage:
+    pattern:  /
+    defaults: { _controller: MEMORAeTextBundle:Page:index }
+    requirements:
+        _method:  GET

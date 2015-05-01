@@ -1,3 +1,7 @@
+memor_ae_text:
+    resource: "@MEMORAeTextBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
