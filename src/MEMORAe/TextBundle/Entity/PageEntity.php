@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Media")
+ * @ORM\Table(name="Page")
  */
 
 class PageEntity {

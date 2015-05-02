@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="Media")
  */
 
-class MediaEntitiy {
+class MediaEntity {
     /**
      * @ORM\Id
      * @ORM\Column(name="media_id", type="bigint")
