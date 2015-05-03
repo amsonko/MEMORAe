@@ -1,16 +1,31 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-   <div class="panel-body infoSection  col-sm-7">
-    {% block infoSection %}{% endblock %}
+    <div  id="acceuil" class="tab-pane active ">
+         {% block Home %}
+         <div class="panel-body infoSection  col-sm-7">
+            {% block infoSection %}{% endblock %}
+            </div>
+            <section class="col-sm-4 videoSection">
+            {% block videoSection %}{% endblock %}
+             </section>
+          {% endblock %}
     </div>
-    <section class="col-sm-4 videoSection">
-    {% block videoSection %}{% endblock %}
-     </section>
-     
-      <div role="tabpanel" class="tab-pane" id="rd">
+       <div role="tabpanel" class="tab-pane" id="QMemorae">
+            {% block QMemorae %}{% endblock %}
+           	 
+        </div>
+        <div role="tabpanel" class="tab-pane" id="document">
 
-           onglet R&D
+           {% block document %}{% endblock %}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="video">
+             {% block video %}{% endblock %}
+         
+        </div>
+        <div role="tabpanel" class="tab-pane" id="rd">
+             {% block rd %}{% endblock %}
+           
         </div>
     
 {% endblock %}
