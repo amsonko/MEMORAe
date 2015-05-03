@@ -1,11 +1,14 @@
 {% extends 'MEMORAeTextBundle::layout.html.twig' %}
+
 {%if home is defined %}
 {% block InfoSection %} 
     
         
             {% for contenu in home %} 
+                <p>
                    {{contenu.content }}
-                   {% endfor %} 
+                   </p>
+            {% endfor %} 
         
  {% endblock %}
  {% block VideoSection %} 
@@ -16,7 +19,8 @@
              </div>
     
  {% endblock %}
-  {%endif %}
+ {%endif %}
+ 
   {% block QMemorae %} 
       {%if qMemorae is defined %}
                  {% for contenu in qMemorae %} 
