@@ -1,12 +1,7 @@
-memor_ae_text_homepage:
-    pattern:  /
-    defaults: { _controller: MEMORAeTextBundle:Page:index }
-    requirements:
-        _method:  GET
-        
-memor_ae_text_homepage:
+memorae_homepage:
     pattern:  /{id}
-    defaults: { _controller: MEMORAeTextBundle:Page:index }
+    defaults: { _controller: MEMORAeTextBundle:Page:index, id:1}
     requirements:
         _method:  GET
-        id: \d+
+        id: \d*
+

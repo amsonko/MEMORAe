@@ -1,6 +1,29 @@
 {% extends 'MEMORAeTextBundle::layout.html.twig' %}
+{% block infoSection %} 
+        {% if page==1 %}
+      
+            {% for contenu in media %} 
+                   {{contenu.content }}
+                   {% endfor %} 
+                
+        {% elseif page ==2 %}
+                 {% for contenu in media %} 
+                   {{contenu.content }}
+                   {% endfor %} 
+      {#  {% elseif page.id ==1 %}
+        {% elseif page.id ==1 %}
+        {% elseif page.id ==1 %}
+        {% elseif page.id ==1 %}
+        {% elseif page.id ==1 %}
+        {% elseif page.id ==1 %}  #}
+      {% else %}
+          i dont know what to do
+       {% endif %}
+   {% endblock %}
+   {% block videoSection %}
+       <h2>Presentation</h2>
+              EMPLACEMENT DE VIDEO
+   {% endblock %}
+    
 
-{% block body %}
-    MEMORAe homepage
-    {{text.content}}
-{% endblock %}
+

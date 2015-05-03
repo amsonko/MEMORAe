@@ -11,7 +11,7 @@ namespace MEMORAe\TextBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MEMORAe\TextBundle\Repository\MediaEntityRepository")
  * @ORM\Table(name="Media")
  */
 

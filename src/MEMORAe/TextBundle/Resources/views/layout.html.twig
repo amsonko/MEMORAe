@@ -1,5 +1,16 @@
 {% extends '::base.html.twig' %}
 
-{% block sidebar %}
-    Sidebar content
+{% block body %}
+   <div class="panel-body infoSection  col-sm-7">
+    {% block infoSection %}{% endblock %}
+    </div>
+    <section class="col-sm-4 videoSection">
+    {% block videoSection %}{% endblock %}
+     </section>
+    
 {% endblock %}
+     
+   
+    
+       
+
