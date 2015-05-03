@@ -11,9 +11,7 @@ class PageController extends Controller
 {
     public function indexAction($id)
     {
-        if (empty(trim($id))){
-             $id=1;
-        }
+        
         
         return $this->buildPage($id);
     }
@@ -21,21 +19,22 @@ class PageController extends Controller
     
     public function buildPage($pageId) {
        
-        if (!$pageId || $pageId >10){
+      //  if (!$pageId || $pageId >10){
     //         throw new NotFoundHttpException("Page .$pageId. inexistante.");
-        }
+      //  }
         
         $repository = $this->getDoctrine()->getEntityManager()->getRepository('MEMORAeTextBundle:MediaEntity');
      
-        $media =$repository->findMediaCurrentPage($pageId);
+        $media =$repository->findAllMedia();
 
         if (!$media) {
             throw $this->createNotFoundException('Unable to find any text for page with the id '.$pageId);
         }
        
         return $this->render('MEMORAeTextBundle:Page:index.html.twig', 
-                array('media' =>$media,
-                      'page' =>$pageId
+                array('home' =>$media['home'],
+                      'qMemorae' =>$media['qMemorae']
+                       
                     ));
     }
 }
