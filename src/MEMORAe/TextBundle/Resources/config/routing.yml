@@ -1,6 +1,6 @@
 memorae_homepage:
     pattern:  /{id}
-    defaults: { _controller: MEMORAeTextBundle:Page:index, id:1}
+    defaults: { _controller: MEMORAeTextBundle:Page:index}
     requirements:
         _method:  GET
         id: \d*
