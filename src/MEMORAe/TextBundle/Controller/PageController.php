@@ -26,11 +26,12 @@ class PageController extends Controller
         $repository = $this->getDoctrine()->getEntityManager()->getRepository('MEMORAeTextBundle:MediaEntity');
      
         $media =$repository->findAllMedia();
+          
 
         if (!$media) {
             throw $this->createNotFoundException('Unable to find any text for page with the id '.$pageId);
         }
-       
+     
         return $this->render('MEMORAeTextBundle:Page:index.html.twig', 
                 array('home' =>$media['home'],
                       'qMemorae' =>$media['qMemorae']
