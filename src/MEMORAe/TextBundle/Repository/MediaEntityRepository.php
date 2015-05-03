@@ -9,18 +9,19 @@ class MediaEntityRepository extends EntityRepository
 {
     
     public function findAllMedia(){
-    $home=findMediaForOnePage(1);
-    $qMemorae=findMediaForOnePage(2);
+    
+    $qMemorae=$this->findMediaForOnePage(2);
+    $home=$this->findMediaForOnePage(1);
     return array("home" => $home,
-                 "qMemerae" => $qMemorae
+                 "qMemorae" => $qMemorae
                 );
   
 }
-    private function findMediaForOnePage($id){
+    public function findMediaForOnePage($id){
         
          $qb = $this->createQueryBuilder('a');
 
-  $qb->where('a.id = :id')
+  $qb->where('a.page = :id')
     ->setParameter('id', $id);
 
     return $qb
