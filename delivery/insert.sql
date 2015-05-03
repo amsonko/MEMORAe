@@ -12,5 +12,16 @@ Le cœur de l’innovation concerne l’organisation autour d’une carte de con
 L’usage d’une carte sémantique permet de définir un référentiel commun dans lequel il est possible de naviguer pour accéder aux ressources capitalisées dans différents espaces. Ces espaces sont visibles en parallèle et facilitent le transfert de connaissances entre individus.');
 
 INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(2, 'fr', 'text', 1, 'detais de qu''est ce que memorea');
+
+# mise en place le 03/05/2015 test de la récuperation des media 
+INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(2, 'fr', 'text', 1, 'detais  de qu''est ce que memorea');
+INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(3, 'fr', 'text', 1, 'detais2 de qu''est ce que memorea');
+INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(4, 'fr', 'text', 1, 'detais3 de qu''est ce que memorea');
+INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(5, 'fr', 'text', 1, 'detais4 de qu''est ce que memorea');
+INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(6, 'fr', 'text', 2, 'detais4 de qu''est ce que memorea');
+
+
+
+
 COMMIT;
 
