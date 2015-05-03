@@ -4,16 +4,4 @@ memorae_homepage:
     requirements:
         _method:  GET
         id: \d*
-
-memor_ae_text_homepage:
-    pattern:  /
-    defaults: { _controller: MEMORAeTextBundle:Page:index }
-    requirements:
-        _method:  GET
         
-memor_ae_text:
-    pattern:  /{id}
-    defaults: { _controller: MEMORAeTextBundle:Page:index }
-    requirements:
-        _method:  GET
-        id: \d+
