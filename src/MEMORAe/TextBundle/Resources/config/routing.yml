@@ -4,4 +4,3 @@ memorae_homepage:
     requirements:
         _method:  GET
         id: \d*
-        
