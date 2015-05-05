@@ -1,5 +1,37 @@
 {% extends '::base.html.twig' %}
 
-{% block sidebar %}
-    Sidebar content
+{% block body %}
+    <div   role="tabpanel" class="tab-pane active" id="acceuil" >
+        
+         <div class="panel-body infoSection  col-sm-7">
+            
+            {% block InfoSection %}{% endblock %}
+            </div>
+            <section class="videoSection col-sm-4">
+            {% block VideoSection %}{% endblock %}
+             </section>
+         
+    </div>
+       <div role="tabpanel" class="tab-pane" id="QMemorae">
+            {% block QMemorae %}{% endblock %}
+           	 
+        </div>
+        <div role="tabpanel" class="tab-pane" id="document">
+
+           {% block Document %}{% endblock %}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="video">
+             {% block Video %}{% endblock %}
+         
+        </div>
+        <div role="tabpanel" class="tab-pane" id="rd">
+             {% block Rd %}{% endblock %}
+           
+        </div>
+    
 {% endblock %}
+     
+   
+    
+       
+

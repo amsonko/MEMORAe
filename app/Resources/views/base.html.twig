@@ -1,52 +1,133 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html"; charset=utf-8" />
-        <title>{% block title %}insert a title in here{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html" charset=utf-8" />
+        <title>{% block title %}Memorae{% endblock %}</title>
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         {% block stylesheets %}
-            <link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />
+   
+            <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="{{asset('CSS/memorae.css')}}" />
+            <link rel="stylesheet" href="{{asset('CSS/carousel.css')}}" />
+            
         {% endblock %}
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        {% block javascripts %}
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+		<script src="{{asset('JavaScript/plugins/jssor.slider.mini.js')}}"></script>
+		<script src="{{asset('JavaScript/home.js')}}"></script>
+        {% endblock %}
+       
     </head>
     <body>
 
-        <section id="wrapper">
-            <header id="header">
-                <div class="top">
-                    {% block navigation %}
-                        <nav>
-                            <ul class="navigation">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </nav>
-                    {% endblock %}
+       <div id="corps">
+   		<div class="header">
+                    <div class="panelHeader">
+  			<div class="memoraeHeader">
+   
+				<ul class="nav nav-pills " role="tablist">
+					<li class="logo"><img  src="images/memorae.png" alt="logo memorae"></li>
+					<li  ><h1> Memorae</h1> </li>
+					<li  class="headerRight langue"><a href="#">EN</a></li>
+				   <li  class="headerRight langue"><a href="#">FR</a></a></li>
+				  <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_cnrs.jpg')}}" alt="logo cnrs"></a></li>
+				  <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_Heudiasyc.jpg')}}" alt="logo Heudiasyc"></a></li>
+				  <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_utc.png')}}" alt="logo UTC"></a></li>
+
+
+				  <li  class="headerRight login"> <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>LogIn</button></li>
+				</ul>
+		  	</div>
+                    </div>
+                    <div id="carousel" >
+    <!-- Slides Container -->
+                        <div u="slides" class="slides" >
+                            <div><img u="image" src="{{asset('images/carousel/01.jpg')}}" alt="image carousel"></div>
+                            <div><img u="image" src="{{asset('images/carousel/02.jpg')}}"  alt=" image carousel"></div>
+                             <div><img u="image" src="{{asset('images/carousel/03.jpg')}}"  alt=" image carousel"></div>
+                              <div><img u="image" src="{{asset('images/carousel/04.jpg')}}"  alt=" image carousel"></div>
+
+                        </div>
+		  
+    
+        <!-- bullet navigator container -->
+                        <div u="navigator" class="jssorb05">
+                            <!-- bullet navigator item prototype -->
+                            <div u="prototype"></div>
+                        </div>
+                        <!--#endregion Bullet Navigator Skin End -->
+
+                        <a style="display: none" href="http://www.jssor.com">Image Slider</a>
+                    </div>
                 </div>
 
-                <hgroup>
-                    <h2>{% block blog_title %}<a href="#">MEMORAe</a>{% endblock %}</h2>
-                    <h3>{% block blog_tagline %}<a href="#">Création du site MEMORAe</a>{% endblock %}</h3>
-                </hgroup>
-            </header>
 
-            <section class="main-col">
-                {% block body %}{% endblock %}
-            </section>
-            <aside class="sidebar">
-                {% block sidebar %}{% endblock %}
-            </aside>
 
-            <div id="footer">
-                {% block footer %}
-                    This is the footer
-                {% endblock %}
-            </div>
-        </section>
+		<div class="menu">
+			<nav class="navbar navbar-default navbar-fixed">
+				  <div class="container-fluid">
+				    <ul class="nav navbar-nav">
+				      <li role="presentation" class="active"> <a href="#acceuil" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-home"></span>&nbsp;Accueil</a> 
+				      </li>
+				      <li role="presentation" > <a href="#QMemorae" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;Qu'est ce que Memorae</a>
+				       </li>
+				      <li role="presentation" class="dropdown" > 
+			            <a data-toggle="dropdown" href="#">Documentation<b class="caret"></b></a>
+			            <ul class="dropdown-menu">
+			              <li><a href="#document" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span>&nbsp;Document</a></li>
+			              <li><a href="#video" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;Video</a></li>
+			            </ul>
+			        </li>
+				      <li role="presentation"><a href="#rd" role="tab" data-toggle="tab">R&D</a></li>
+				    
+				    <form class="navbar-form navbar-right right" role="search">
+			            <div class="form-group">
+			              <input type="search" class="input-sm form-control" placeholder="Recherche">
+			              <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
+			            </div>
+			         </form>
+				    </ul>
+				  </div>
+			</nav>
+		
+                    <div class="tab-content content">
+                        {% block body %}
+                        {% endblock %}
+                    </div>
+                </div>
+        </div>
+           
+   <footer>
+	<div class="container">
+		<div class="infoGenerale">
+			<h5> informations génerales</h5><br/>
+			<div>
+			Marie-Hélène Abel Associate professor<br/>
+			Joint Laboratory HEUDIASYC<br/>
 
-        {% block javascripts %}{% endblock %}
+			Université de Technologie de compiègne<br/>
+			Centre de Recherche de Royallieu<br/>
+			 BP 20529     60205 Compiégne
+			</div>
+		</div>
+		<div class="contactExterne">
+			<h5>Retrouverz nous sur </h5>
+				<ul  >
+                    <li><a href="#"><img src="images/facebook.png" alt="logo facebook">&nbsp;&nbsp;Facebook</a></li><br/>
+                    <li><a href="#"><img src="images/twitter.png" alt="logo twitter">&nbsp;&nbsp;twitter</a></li><br/>
+                    <li><a href="#"><img src="images/blog.png" alt="logo facebook">&nbsp;&nbsp;Mon blog</a></li><br/>
+                    
+                 </ul>
+			
+		</div>
+
+
+	</div>
+   </footer>
     </body>
 </html>
