@@ -23,9 +23,21 @@
  
   {% block QMemorae %} 
       {%if qMemorae is defined %}
+          <div class="tabcordion">
+          <ul class="nav nav-tabs">
                  {% for contenu in qMemorae %} 
-                   {{contenu.content }}
-                   {% endfor %} 
+                     <li><a data-target=".{{ contenu.id }}">{{ contenu.name }}</a></li>
+                   {% endfor %} 	  
+	  </ul>
+          
+	  <div class="tab-content">
+            {% for contenu in qMemorae %}  
+	    <div class="{{ contenu.id }}">
+	      <p>{{ contenu.content }}</p>
+	    </div>
+            {% endfor %}
+	  </div>
+	</div>
         {%endif %}
    {% endblock %}
       

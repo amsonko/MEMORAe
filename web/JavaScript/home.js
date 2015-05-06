@@ -33,5 +33,5 @@ function changeActiveMenu(selector){
 
 changeActiveMenu(".menuNavigation");*/
 
-
+$('.tabcordion').tabcordion();
 });

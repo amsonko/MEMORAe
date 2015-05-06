@@ -20,6 +20,18 @@ INSERT INTO Media (media_id, media_language, current_media, page_id, media_conte
 INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(5, 'fr', 'text', 1, 'detais4 de qu''est ce que memorea');
 INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(6, 'fr', 'text', 2, 'detais4 de qu''est ce que memorea');
 
+--jeux de données de test des accordions sur la page qu'est ce que memorae
+
+INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content) VALUES(7, 'Plateforme intégrée', 'fr', 'text', 2, 'Une des forces de la plateforme MEMORAe est son intégration complète de toutes les fonctionnalités nécessaires pour héberger un serveur de collaboration et de capitalisation des connaissances. Elle inclut toutes ses fonctionnalités au sein d''une même application : il ne s''agit pas d''une association de différents logiciels offrant les fonctionnalités désirées.');
+INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content) VALUES(8, 'Référentiel commun', 'fr', 'text', 2, 'Représentation d’un référentiel commun au moyen d’un standard du web sémantique (OWL).
+Création, importation/exportation du référentiel commun.
+Navigation au sein d''une cartographie de connaissances illustrant le
+référentiel commun ;
+Le focus sur la carte permet d''afficher en parallèle l''ensemble des ressources qu''il indexe distribuées dans les espaces de partage accessible par l''utilisateur. Ces ressources peuvent êtres issues d’un chat, d''une base documentaire, d''un wiki, d''un agenda, etc.');
+-- INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content) VALUES(9, 'fr', 'text', 2, 'detais3 de qu''est ce que memorea');
+-- INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content) VALUES(10, 'fr', 'text', 2, 'detais4 de qu''est ce que memorea');
+-- INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content) VALUES(11, 'fr', 'text', 2, 'detais4 de qu''est ce que memorea');
+
 
 
 
