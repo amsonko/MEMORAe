@@ -23,18 +23,20 @@ $(document).ready(function(){
             popup_height: 100
         });
 
-            $("ul#footer").sidebar();
+         //   $("#footer").sidebar();
             $("#footer").sidebar({
                 position:"bottom", // Position of the sidebar menu
                 open:"click" // Open method. Default to mouse hover
-                /*callback:{
-                    item : {
+              /*  callback:{
+                     item : {
                         enter : function(){
+                            alert("fuck");
+                        
                             $(this).find("a").animate({color:"red"}, 250);
                         },
 
                         leave : function(){
-
+                                alert("out");
                             $(this).find("a").animate({color:"white"}, 250);
 
                         }
