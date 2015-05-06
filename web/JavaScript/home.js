@@ -14,24 +14,38 @@ $(document).ready(function(){
                     $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
                 }
             };
-/*var options = { $AutoPlay: true };*/
+
         var jssor_slider1 = new $JssorSlider$('carousel', options);
+         $("body").floatingShare({
 
-/*
-function changeActiveMenu(selector){
-    $(selector).find("li").on("click",function(){
-        var $this=$(this);
-        $this.parents(selector).find(".active").removeClass("active");
-        var $ul=$this.parent("ul");
-        if ($ul.length!=0){
-            $ul.addClass("active"); 
-        }
-        $this.addClass("active");
-    });
-    
-}
+            buttons: ["facebook","twitter","google-plus","linkedin","pinterest","envelope"],
+            popup_width: 200,
+            popup_height: 100
+        });
 
-changeActiveMenu(".menuNavigation");*/
+            $("ul#footer").sidebar();
+            $("#footer").sidebar({
+                position:"bottom", // Position of the sidebar menu
+                open:"click", // Open method. Default to mouse hover
+                /*callback:{
+                    item : {
+                        enter : function(){
+                            $(this).find("a").animate({color:"red"}, 250);
+                        },
 
+                        leave : function(){
 
+                            $(this).find("a").animate({color:"white"}, 250);
+
+                        }
+
+                    }
+
+                }
+                */
+
+            });
 });
+
+
+
