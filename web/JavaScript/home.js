@@ -26,7 +26,7 @@ $(document).ready(function(){
             $("ul#footer").sidebar();
             $("#footer").sidebar({
                 position:"bottom", // Position of the sidebar menu
-                open:"click", // Open method. Default to mouse hover
+                open:"click" // Open method. Default to mouse hover
                 /*callback:{
                     item : {
                         enter : function(){
