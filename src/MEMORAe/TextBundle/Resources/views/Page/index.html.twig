@@ -23,16 +23,16 @@
  
   {% block QMemorae %} 
       {%if qMemorae is defined %}
-          <div class="tabcordion">
+          <div class="ui-accordion">
           <ul class="nav nav-tabs">
                  {% for contenu in qMemorae %} 
-                     <li><a data-target=".{{ contenu.id }}">{{ contenu.name }}</a></li>
+                     <li><a class="ui-accordion-header" data-target=".{{ contenu.id }}">{{ contenu.name }}</a></li>
                    {% endfor %} 	  
 	  </ul>
           
 	  <div class="tab-content">
             {% for contenu in qMemorae %}  
-	    <div class="{{ contenu.id }}">
+	    <div class="{{ contenu.id }} ui-accordion-content">
 	      <p>{{ contenu.content }}</p>
 	    </div>
             {% endfor %}
