@@ -47,6 +47,7 @@ $(document).ready(function(){
                 */
 
             });
+            $('.ui-accordion').tabcordion();
 });
 
 
