@@ -113,7 +113,7 @@ height:150%;
 .content {
     width: 80%;
     position:absolute;
-   // border: 1px solid #00F;
+    border: 1px solid #00F;
     height: 50%;
 }
 .infoSection ,.videoSection{
