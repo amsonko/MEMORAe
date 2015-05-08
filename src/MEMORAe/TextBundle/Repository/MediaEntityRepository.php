@@ -28,5 +28,22 @@ class MediaEntityRepository extends EntityRepository
     ->getQuery()
     ->getResult() ;
     }
+    public function findMedia($pageId){
+        $media;
+        switch($pageId){
+            
+           case 1:
+               $media["home"]=$this->findBy(array("page"=>$pageId));
+               $media["view"]="MEMORAeTextBundle:Page:home.html.twig";
+            break;
+           case 2:
+               
+            break;
+        }
+    
+    return $media;
+                
+  
+}
     
 }

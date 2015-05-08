@@ -1,17 +1,21 @@
 <?php
 
-// src/MEMORAe/TextBundle/Controller/PageController.php
+ // src/MEMORAe/TextBundle/Controller/PageController.php
 
 namespace MEMORAe\TextBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-//use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PageController extends Controller
 {
     public function indexAction($id)
     {
         
+        if (!isset($id)||$id==0){
+            $id=1;
+        }
+        echo "la valeur est "+$id;
         
         return $this->buildPage($id);
     }
@@ -19,23 +23,20 @@ class PageController extends Controller
     
     public function buildPage($pageId) {
        
-      //  if (!$pageId || $pageId >10){
-    //         throw new NotFoundHttpException("Page .$pageId. inexistante.");
-      //  }
+        if (!$pageId || $pageId >10){
+      //       throw new NotFoundHttpException("Page .$pageId. inexistante.");
+        }
         
         $repository = $this->getDoctrine()->getEntityManager()->getRepository('MEMORAeTextBundle:MediaEntity');
      
-        $media =$repository->findAllMedia();
+        $media =$repository->findMedia($pageId);
+        
           
-
         if (!$media) {
             throw $this->createNotFoundException('Unable to find any text for page with the id '.$pageId);
         }
-     
-        return $this->render('MEMORAeTextBundle:Page:index.html.twig', 
-                array('home' =>$media['home'],
-                      'qMemorae' =>$media['qMemorae']
-                       
-                    ));
+    
+        return $this->render($media["view"], 
+                array('home' =>$media["home"]));
     }
 }

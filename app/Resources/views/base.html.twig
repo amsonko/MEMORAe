@@ -13,6 +13,7 @@
             <link rel="stylesheet" href="{{asset('css/memorae.css')}}" />
             <link rel="stylesheet" href="{{asset('css/carousel.css')}}" />
             <link rel="stylesheet"href="{{asset('css/floatingSocialBar.css')}}" />
+            <link rel="stylesheet" href="{{asset('css/accordion.css')}}"/>
             <link rel="stylesheet" href="{{asset('css/sideBar.css')}}"/>
 
         {% endblock %}
@@ -25,7 +26,7 @@
             <script src="{{asset('JavaScript/plugins/tabcordion.js')}}"></script>
             <script src="{{asset('JavaScript/plugins/jquery.sidebar.js')}}"></script>
             <script src="{{asset('JavaScript/plugins/floatingSocialBar.js')}}"></script>
-            <script src="{{asset('JavaScript/home.js')}}"></script>
+            <script src="{{asset('JavaScript/index.js')}}"></script>
         {% endblock %}
        
     </head>
@@ -78,15 +79,15 @@
 			<nav class="navbar navbar-default navbar-fixed">
 				  <div class="container-fluid">
 				    <ul class="nav navbar-nav">
-				      <li role="presentation" class="active"> <a href="#acceuil" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-home"></span>&nbsp;Accueil</a> 
+				      <li role="presentation" class="active"> <a href="{{path('memorae_homepage',{'id':1})}}" ><span class="glyphicon glyphicon-home"></span>&nbsp;Accueil</a> 
 				      </li>
-				      <li role="presentation" > <a href="#QMemorae" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;Qu'est ce que Memorae</a>
+				      <li role="presentation" > <a href="{{path('memorae_homepage',{'id':2})}}" ><span class="glyphicon glyphicon-folder-open"></span>&nbsp;Qu'est ce que Memorae</a>
 				       </li>
 				      <li role="presentation" class="dropdown" > 
 			            <a data-toggle="dropdown" href="#">Documentation<b class="caret"></b></a>
 			            <ul class="dropdown-menu">
-			              <li><a href="#document" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span>&nbsp;Document</a></li>
-			              <li><a href="#video" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;Video</a></li>
+			              <li><a href="{{path('memorae_homepage',{'id':3})}}" ><span class="glyphicon glyphicon-file"></span>&nbsp;Document</a></li>
+			              <li><a href="#video" ><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;Video</a></li>
 			            </ul>
 			        </li>
 				      <li role="presentation"><a href="#rd" role="tab" data-toggle="tab">R&D</a></li>

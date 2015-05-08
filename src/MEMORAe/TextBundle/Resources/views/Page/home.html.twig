@@ -1,0 +1,26 @@
+{% extends 'MEMORAeTextBundle::index.html.twig' %}
+ {% block javascripts %}
+     {{ parent()}}
+     <script src="{{asset('JavaScript/home.js')}}"></script>
+  {% endblock %}
+
+{%if home is defined %}
+{% block InfoSection %} 
+    
+     
+            {% for contenu in home %} 
+                <p>
+                   {{contenu.content }}
+                   </p>
+            {% endfor %} 
+        
+ {% endblock %}
+ {% block VideoSection %} 
+     
+           <div>
+		  <h2>Presentation</h2>
+		  EMPLACEMENT DE VIDEO
+             </div>
+    
+ {% endblock %}
+ {%endif %}

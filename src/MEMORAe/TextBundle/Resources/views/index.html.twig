@@ -1,9 +1,9 @@
 {% extends 'MEMORAeTextBundle::layout.html.twig' %}
-
-{%if home is defined %}
+ 
+{#{%if home is defined %}
 {% block InfoSection %} 
     
-        
+     
             {% for contenu in home %} 
                 <p>
                    {{contenu.content }}
@@ -23,16 +23,16 @@
  
   {% block QMemorae %} 
       {%if qMemorae is defined %}
-          <div class="ui-accordion">
+          <div class="ui-accordion ui-widget ui-helper-reset">
           <ul class="nav nav-tabs">
                  {% for contenu in qMemorae %} 
-                     <li><a class="ui-accordion-header" data-target=".{{ contenu.id }}">{{ contenu.name }}</a></li>
+                     <li><a class="ui-accordion-header ui-helper-reset" data-target=".{{ contenu.id }}">{{ contenu.name }}</a></li>
                    {% endfor %} 	  
 	  </ul>
           
 	  <div class="tab-content">
             {% for contenu in qMemorae %}  
-	    <div class="{{ contenu.id }} ui-accordion-content">
+	    <div class="{{ contenu.id }} ui-accordion-content ui-accordion-widget-content ui-helper-reset">
 	      <p>{{ contenu.content }}</p>
 	    </div>
             {% endfor %}
@@ -52,4 +52,4 @@
 
 {% block Rd %}
     onglet R&D
-   {% endblock %}
+   {% endblock %}#}
