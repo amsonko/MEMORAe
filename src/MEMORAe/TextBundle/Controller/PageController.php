@@ -37,13 +37,13 @@ class PageController extends Controller
         switch($pageId)
         {
             case 1:
-                return $this->render("MEMORAeTextBundle:Page:home.html.twig", array('home' =>$media));
+                return $this->render("MEMORAeTextBundle:Page:home.html.twig", array('medias' =>$media));
             case 2:
                 return $this->render("MEMORAeTextBundle:Page:whatIsMemorae.html.twig", array('wim' =>$media));
             case 3:
-                return $this->render("MEMORAeTextBundle:Page:documents.html.twig", array('doc' =>$media));
+                return $this->render("MEMORAeTextBundle:Page:document.html.twig", array('doc' =>$media));
             case 4:
-                return $this->render("MEMORAeTextBundle:Page:video.html.twig", array('vid' =>$media));
+                return $this->render("MEMORAeTextBundle:Page:video.html.twig", array('video' =>$media));
             case 5:
                 return $this->render("MEMORAeTextBundle:Page:randd.html.twig", array('randd' =>$media));
         }

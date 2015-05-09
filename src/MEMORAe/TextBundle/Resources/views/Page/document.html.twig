@@ -9,35 +9,17 @@
  {% block Document %}
    
      <div class="row">
-	 <div class="col-xs-4 col-sm-3 col-md-4">
+        {% for contenu in doc %}
+            <div class="col-xs-4 col-sm-3 col-md-4">
 		<div class="thumbnail">
-                    <img src="{{asset('images/dance1.jpg')}}" alt="Generic placeholder thumbnail">
+                    <img src="{{asset('images/' ~ contenu.path)}}" alt="Generic placeholder thumbnail">
                         <div class="caption">
-                            <h4>Thumbnail label</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <h4>{{contenu.name}}</h4>
+                            <p>{{contenu.content}}</p>
 			</div>
 		</div>
-	</div>
-        <div class="col-xs-4 col-sm-3 col-md-4">
-		<div class="thumbnail">
-                    <img src="{{asset('images/dance2.jpg')}}"  alt="Generic placeholder thumbnail">
-			<div class="caption">
-                            <h4>Thumbnail label</h4>
-				  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-				       
-			</div>
-                </div>
-	</div>
-	<div class="col-xs-4 col-sm-3 col-md-4">
-		<div class="thumbnail">
-                    <img src="{{asset('images/dance7.jpg')}}"  alt="Generic placeholder thumbnail">
-			<div class="caption">
-				<h4>Thumbnail label</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-				       
-			</div>
-		</div>
-	</div>
+            </div>
+        {% endfor %}
     </div>
 				 
  {% endblock %}

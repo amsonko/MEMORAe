@@ -2,6 +2,8 @@
 BEGIN;
 INSERT INTO Page (page_id, page_name) VALUES(1,'Home');
 INSERT INTO Page (page_id, page_name) VALUES(2,'Qu''est ce que Memorae');
+INSERT INTO Page (page_id, page_name) VALUES(3,'Document');
+INSERT INTO Page (page_id, page_name) VALUES(4,'Video');
 
 INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(1, 'fr', 'text', 1, 'Avec l’approche MEMORAe, nous avons souhaité modéliser et concevoir une plateforme web permettant de gérer l’ensemble des ressources hétérogènes de connaissances circulant dans une organisation.
 
@@ -32,7 +34,16 @@ Le focus sur la carte permet d''afficher en parallèle l''ensemble des ressource
 -- INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content) VALUES(10, 'fr', 'text', 2, 'detais4 de qu''est ce que memorea');
 -- INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content) VALUES(11, 'fr', 'text', 2, 'detais4 de qu''est ce que memorea');
 
+--Jeux de données de test des documents
+INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content, media_path) VALUES(9, 'Dance 1', 'fr', 'file', 3, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance1.jpg');
+INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content, media_path) VALUES(10, 'Dance 2', 'fr', 'file', 3, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance2.jpg');
+INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content, media_path) VALUES(11, 'Dance 7', 'fr', 'file', 3, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance7.jpg');
 
+-- Jeux de données pour les vidéos
+INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content, media_path) VALUES(12, 'stand up about pimp', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'pimp.mp4');
+INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content, media_path) VALUES(13, 'Dance 2', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'weed.mp4');
+INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content, media_path) VALUES(14, 'Dance 7', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'religion.mp4');
+INSERT INTO Media (media_id, media_name, media_language, current_media, page_id, media_content, media_path) VALUES(15, 'Dance 7', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'nasa.mp4');
 
 
 COMMIT;
