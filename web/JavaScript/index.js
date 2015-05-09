@@ -1,5 +1,8 @@
 
-var options = {
+var helpFunction={
+    
+        getOption:function(){
+            return {
                 $AutoPlay: true,                                   //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
                 $SlideDuration: 800,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
                 $BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
@@ -13,42 +16,45 @@ var options = {
                     $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
                 }
             };
-
-        var jssor_slider1 = new $JssorSlider$('carousel', options);
-         $("body").floatingShare({
-
+        },
+        pluginSlider:function(){
+             var jssor_slider1 = new $JssorSlider$('carousel',helpFunction.getOption());
+        },
+        pluginFloatingShare:function(){
+            $("body").floatingShare({
             buttons: ["facebook","twitter","google-plus","linkedin","pinterest","envelope"],
             popup_width: 200,
             popup_height: 100
-        });
-
-         //   $("#footer").sidebar();
-            $("#footer").sidebar({
+            }); 
+            
+        },
+        pluginSideBar:function(){
+            $("footer").sidebar({
                 position:"bottom", // Position of the sidebar menu
-                open:"click" // Open method. Default to mouse hover
-              /*  callback:{
-                     item : {
-                        enter : function(){
-                            alert("fuck");
-                        
-                            $(this).find("a").animate({color:"red"}, 250);
-                        },
-
-                        leave : function(){
-                                alert("out");
-                            $(this).find("a").animate({color:"white"}, 250);
-
-                        }
-
-                    }
-
-                }
-                */
-
+                open:"click", // Open method. Default to mouse hover
+            });
+        },
+        lanceAllPlugin:function(){
+            helpFunction.pluginFloatingShare();
+            helpFunction.pluginSideBar();
+            helpFunction.pluginSlider();
+            
+        },
+        gestionActiveMenu:function($objet,$bind,parentClass){
+            $("."+parentClass).find(".active").each(function(){
+                $(this).removeClass("active");
             });
             
+            $objet.addClass("active");
+            $bind.addClass("active");     
+        }
+
+};
+
+     
+          
+        
+          
             
-     function test(){
-         
-     }
+   
       

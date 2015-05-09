@@ -14,9 +14,8 @@ class PageController extends Controller
         
         if (!isset($id)||$id==0){
             $id=1;
-        }
-        echo "la valeur est "+$id;
-        
+        }    
+       
         return $this->buildPage($id);
     }
     
