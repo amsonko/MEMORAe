@@ -40,14 +40,27 @@
 				<ul class="nav nav-pills " role="tablist">
 					<li class="logo"><img  src="{{asset('images/memorae.png')}}" alt="logo memorae"></li>
 					<li  ><h1> Memorae</h1> </li>
-					<li  class="headerRight langue"><a href="#">EN</a></li>
-				   <li  class="headerRight langue"><a href="#">FR</a></a></li>
-				  <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_cnrs.jpg')}}" alt="logo cnrs"></a></li>
-				  <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_Heudiasyc.jpg')}}" alt="logo Heudiasyc"></a></li>
-				  <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_utc.png')}}" alt="logo UTC"></a></li>
-
-
-				  <li  class="headerRight login"> <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>LogIn</button></li>
+                                        <li  class="headerRight">
+					 <div class="dropdown">
+					  <button class="btn btn-default dropdown-toggle" type="button" id="actionHeader" data-toggle="dropdown" aria-expanded="true">
+					    other
+					    <span class="caret"></span>
+					  </button> 
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					  	  <li role="presentation" class="dropdown-header">Langue</li>  
+					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Francais</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Anglais</a></li>
+					     <li role="presentation" class="divider"></li>
+					     <li role="presentation" class="dropdown-header">Admin</li> 
+					    
+					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;LogIn</a></li>
+					  </ul>
+					</div>
+					</li>		
+					
+                                        <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_cnrs.jpg')}}" alt="logo cnrs"></a></li>
+                                        <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_Heudiasyc.jpg')}}" alt="logo Heudiasyc"></a></li>
+                                        <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_utc.png')}}" alt="logo UTC"></a></li>
 				</ul>
 		  	</div>
                     </div>
@@ -79,25 +92,42 @@
 			<nav class="navbar navbar-default navbar-fixed">
 				  <div class="container-fluid">
 				    <ul class="nav navbar-nav">
-				      <li role="presentation" class="active"> <a href="{{path('memorae_homepage',{'id':1})}}" ><span class="glyphicon glyphicon-home"></span>&nbsp;Accueil</a> 
+				      <li role="presentation" class="acceuil active" > <a href="{{path('memorae_homepage',{'id':1})}}" ><span class="glyphicon glyphicon-home"></span>&nbsp;Accueil</a> 
 				      </li>
 				      <li role="presentation" > <a href="{{path('memorae_homepage',{'id':2})}}" ><span class="glyphicon glyphicon-folder-open"></span>&nbsp;Qu'est ce que Memorae</a>
 				       </li>
-				      <li role="presentation" class="dropdown" > 
-			            <a data-toggle="dropdown" href="#">Documentation<b class="caret"></b></a>
-			            <ul class="dropdown-menu">
-			              <li><a href="{{path('memorae_homepage',{'id':3})}}" ><span class="glyphicon glyphicon-file"></span>&nbsp;Document</a></li>
-			              <li><a href="#video" ><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;Video</a></li>
-			            </ul>
-			        </li>
-				      <li role="presentation"><a href="#rd" role="tab" data-toggle="tab">R&D</a></li>
-				    
-				    <form class="navbar-form navbar-right right" role="search">
-			            <div class="form-group">
-			              <input type="search" class="input-sm form-control" placeholder="Recherche">
-			              <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
-			            </div>
-			         </form>
+				      <li role="presentation" class="dropdown documentation" > 
+                                            <a data-toggle="dropdown"  href="#">Documentation<b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                              <li><a href="{{path('memorae_homepage',{'id':3})}}" ><span class="glyphicon glyphicon-file"></span>&nbsp;Document</a></li>
+                                              <li><a href="{{path('memorae_homepage',{'id':4})}}" ><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;Video</a></li>
+                                            </ul>
+                                      </li>
+				      <li role="presentation">
+                                            <a data-toggle="dropdown" href="#">R&D<b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                              <li class="dropdown-submenu">
+                                                <a tabindex="-1" href="#">Projets</a>
+                                                    <ul class="dropdown-menu">
+                                                      <li><a href="{{path('memorae_homepage',{'id':6})}}" >&nbsp;Industriels</a></li>
+                                                      <li><a href="{{path('memorae_homepage',{'id':7})}}" >&nbsp;Regionaux</a></li>
+                                                      <li><a href="{{path('memorae_homepage',{'id':8})}}" >&nbsp;Académiques</a></li>
+
+                                                    </ul>
+                                                  
+                                               </li>
+                                               <li><a href="{{path('memorae_homepage',{'id':5})}}" >&nbsp;Theses</a></li>
+                                            </ul>
+                                      </li>
+                                      <li role="presentation">
+                                            <a data-toggle="dropdown" href="#">Publications<b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                              <li><a href="{{path('memorae_homepage',{'id':9})}}" >&nbsp;Livres</a></li>
+                                              <li><a href="{{path('memorae_homepage',{'id':10})}}" >&nbsp;Articles</a></li>
+                                               <li><a href="{{path('memorae_homepage',{'id':11})}}" >&nbsp;Chapitre Livre</a></li>
+                                                <li><a href="{{path('memorae_homepage',{'id':12})}}" >&nbsp;Conference</a></li>
+                                            </ul>
+                                      </li>
 				    </ul>
 				  </div>
 			</nav>
@@ -106,7 +136,7 @@
                         {% block body %}
                         {% endblock %}
                     </div>
-                </div>
+                
         </div>
            
    <footer id="footer">
@@ -124,13 +154,14 @@
 		</div>
 		<div class="contactExterne">
 			<h5>Retrouverz nous sur </h5>
-				<ul  >
+                   <ul>
                     <li><a href="#"><img src="{{asset('images/facebook.png')}}" alt="logo facebook">&nbsp;&nbsp;Facebook</a></li><br/>
                     <li><a href="#"><img src="{{asset('images/twitter.png')}}" alt="logo twitter">&nbsp;&nbsp;twitter</a></li><br/>
                     <li><a href="#"><img src="{{asset('images/blog.png')}}" alt="logo facebook">&nbsp;&nbsp;Mon blog</a></li><br/>
                  </ul>
 		</div>
 	</div>
-   </footer>
+      </footer>
+    </div>
     </body>
 </html>

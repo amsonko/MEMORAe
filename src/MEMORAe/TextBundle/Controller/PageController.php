@@ -14,9 +14,8 @@ class PageController extends Controller
         
         if (!isset($id)||$id==0){
             $id=1;
-        }
-        echo "la valeur est "+$id;
-        
+        }    
+       
         return $this->buildPage($id);
     }
     
@@ -35,8 +34,8 @@ class PageController extends Controller
         if (!$media) {
             throw $this->createNotFoundException('Unable to find any text for page with the id '.$pageId);
         }
-    
+        
         return $this->render($media["view"], 
-                array('home' =>$media["home"]));
+                array('medias' =>$media["media"]));
     }
 }

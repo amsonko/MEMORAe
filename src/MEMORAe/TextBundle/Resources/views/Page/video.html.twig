@@ -1,0 +1,54 @@
+{% extends 'MEMORAeTextBundle::index.html.twig' %}
+ {% block javascripts %}
+     {{ parent()}}
+     <script src="{{asset('JavaScript/video.js')}}"></script>
+  {% endblock %}
+
+{%if video is defined %}
+ {% block Video %}
+       
+   <div class="row">
+        		<div class="col-xs-4 col-sm-4 col-md-3">
+				    <div class="thumbnail">
+				    	<video  src="{{asset('videos/pimp.mp4')}}" controls ></video>
+				      <div class="caption videoCaption">
+				        <h4> stand up about pimp</h4>
+				        <p>Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées </p>
+				      </div>
+				    </div>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-3">
+				    <div class="thumbnail">
+				    	<video src="{{asset('videos/weed.mp4')}}" controls ></video>
+				      <div class="caption videoCaption">
+				        <h4> stand up about pimp</h4>
+				        <p>Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées </p>
+				      </div>
+				    </div>
+			</div>
+
+                        <div class="col-xs-4 col-sm-4 col-md-3">
+				    <div class="thumbnail">
+				    	<video  src="{{asset('videos/religion.mp4')}}" controls ></video>
+				      <div class="caption videoCaption">
+				        <h4>stand up about religion</h4>
+				        <p>Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées </p>
+				         
+				      </div>
+				    </div>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-3">
+				    <div class="thumbnail">
+				    	<video  src="{{asset('videos/nasa.mp4')}}" controls ></video>
+				      <div class="caption videoCaption">
+				        <h4>stande up about nasa</h4>
+				        <p>Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées</p>
+				      </div>
+				    </div>
+			</div>
+        </div>
+    
+ {% endblock %}
+ {% endif %}
+ 
+
