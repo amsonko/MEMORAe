@@ -46,11 +46,9 @@ var options = {
                 */
 
             });
-            $('.ui-accordion').tabcordion();
             
             
      function test(){
          
-         alert("ok");
      }
       

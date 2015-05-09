@@ -1,22 +1,46 @@
-/*.ui-accordion { width: 100%; }
-.ui-accordion .ui-accordion-header {
- cursor: pointer; position: relative; margin-top: 1px; zoom: 1;
- }
-.ui-accordion .ui-accordion-header a { 
-display: block; font-size: 1em; padding: .5em .5em .5em 2.2em; 
+/* ***************************************************************************************
+ * Accordion - Required styles - DO NOT CHANGE
+ * *************************************************************************************** */
+* {-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+
+/* Important */
+.accordion {
 }
-.ui-accordion .ui-accordion-header .ui-icon {
- position: absolute; left: .5em; top: 50%; margin-top: -8px;
- }
-.ui-accordion .ui-accordion-content {
- padding: 1em 2.2em; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; zoom: 1;
- }
-.ui-accordion .ui-accordion-header.ui-state-disabled, .ui-accordion .ui-accordion-header.ui-state-disabled a { 
-cursor: default; }
 
-*/
+.ac-panel {display:block;}
 
-.ui-accordion .ui-accordion-content {
+
+/* ***************************************************************************************
+ * Demo style
+ * *************************************************************************************** */
+@import url("http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic");
+body {
+    color:#416c80;
+    text-align:center;
+    font:14px/1.231 "Lato", sans-serif;
+    background:#f8f8f8 url(bg.jpg) repeat top left;
+}
+
+.ac-panel {
+}
+.ac-header {
+    cursor: pointer;
+    position: relative;
+    margin-top: 1px;
+    min-height: 0px;
+    padding: 0.5em 0.5em 0.5em 2.2em !important;
+    margin: 0px !important;
+    border-radius: 0px;
+}
+
+.ac-panel:active {
+}
+
+.ac-panel:active::before {
+}
+
+.ac-content {
+    display: none;
     padding: 1em 2.2em;
     border-top: 0px none;
     margin-top: -2px;
@@ -26,25 +50,18 @@ cursor: default; }
     overflow: auto;
 }
 
-.ui-accordion .ui-accordion-header {
-    cursor: pointer;
-    position: relative;
-    margin-top: 1px;
-    min-height: 0px;
-    padding: 0.5em 0.5em 0.5em 2.2em;
-}
-.ui-accordion .ui-accordion-header {
-    margin: 0px;
-    border-radius: 0px;
-}
-.Implementation h3 {
-    margin-top: 40px;
-}
 
-.ui-accordion .ui-accordion-content {
-    margin-bottom: 0px;
+.ac-panel.open .ac-header{
+    box-shadow: 0px 1px 0px #FFF inset;
+    background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4)) repeat scroll 0% 0% #85B2CB;
+    font-weight: bold;
+    color: #1C4257;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
 }
-.ui-helper-reset {
+.ac-panel.open .ac-content{
+    display: block;
+}
+.ui-helper-reset{
     margin: 0px;
     padding: 0px;
     border: 0px none;
@@ -54,8 +71,22 @@ cursor: default; }
     font-size: 100%;
     list-style: outside none none;
 }
+
 .ui-widget-content {
     border: 1px solid #A8A8A8;
     background: none repeat scroll 0% 0% #FFF;
     color: #4F4F4F;
+}
+
+.ui-widget{
+    font-family: Arial, sans-serif;
+}
+
+
+.ui-state-default {
+    box-shadow: 0px 1px 0px #FFF inset;
+    background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) repeat scroll 0% 0% #C4C4C4;
+    font-weight: bold;
+    color: #4F4F4F;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
 }

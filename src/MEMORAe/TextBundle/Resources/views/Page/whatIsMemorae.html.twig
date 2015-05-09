@@ -1,0 +1,55 @@
+{% extends 'MEMORAeTextBundle::index.html.twig' %}
+{% block javascripts %}
+    {{ parent()}}
+    <script src="{{asset('JavaScript/plugins/accordion.js')}}"></script>
+    <script src="{{asset('JavaScript/whatIsMemorae.js')}}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent()}}
+    <link rel="stylesheet" href="{{asset('css/accordion.css')}}"/>
+{% endblock %}
+
+{%if wim is defined %}
+    {% block InfoSection %} 
+    <div id="wimAccordion" class="accordion ui-widget ui-helper-reset">
+        {% for contenu in wim %}
+            <artical class="ac-panel">
+                <header class="ac-header ui-helper-reset ui-state-default">{{contenu.name}}</header>
+                <section class="ac-content ui-helper-reset ui-widget-content">
+{#                    <h3>{{contenu.name}}</h3>#}
+                    <p>{{contenu.content}}</p>
+                </section>
+            </artical>
+        {% endfor %}
+    </div>
+    
+   {# <div id="demo" class="accordion">
+
+  <artical class="ac-panel">
+    <header class="ac-header">Header 1</header>
+    <section class="ac-content">
+      <h3>Title 1</h3>
+      <p>Content 1</p>
+    </section>
+  </artical>
+
+  <artical class="ac-panel">
+    <header class="ac-header">Header 2</header>
+    <section class="ac-content">
+      <h3>Title 2</h3>
+      <p>Content 2</p>
+    </section>
+  </artical>
+
+  <artical class="ac-panel">
+    <header class="ac-header">Header 3</header>
+    <section class="ac-content">
+      <h3>Title 3</h3>
+      <p>Content 3</p>
+    </section>
+  </artical>
+  
+</div>#}
+    {% endblock %}
+{%endif %}
