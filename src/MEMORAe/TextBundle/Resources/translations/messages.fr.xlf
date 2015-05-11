@@ -3,9 +3,130 @@
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
             <trans-unit id="1">
-                <source>Symfony2 is great</source>
-                <target>J'aime Symfony2</target>
+                <source>Language</source>
+                <target>Langue</target>
             </trans-unit>
+            
+            <trans-unit id="2">
+                <source>French</source>
+                <target>Français</target>
+            </trans-unit>
+            
+            <trans-unit id="3">
+                <source>English</source>
+                <target>Anglais</target>
+            </trans-unit>
+
+            <trans-unit id="4">
+                <source>other</source>
+                <target>Autres</target>
+            </trans-unit>
+            
+            <trans-unit id="5">
+                <source>Administration</source>
+                <target>Administration</target>
+            </trans-unit>
+            
+            <trans-unit id="6">
+                <source>Sign in</source>
+                <target>Se connecter</target>
+            </trans-unit>
+            
+            <trans-unit id="7">
+                <source>Home</source>
+                <target>Accueil</target>
+            </trans-unit>
+            
+            <trans-unit id="8">
+                <source>What is Memorae</source>
+                <target>Qu'est-ce que MEMORAe</target>
+            </trans-unit>
+            
+            <trans-unit id="9">
+                <source>Documentation</source>
+                <target>Documentation</target>
+            </trans-unit>
+            
+            <trans-unit id="10">
+                <source>Documents</source>
+                <target>Documents</target>
+            </trans-unit>
+
+            <trans-unit id="11">
+                <source>Videos</source>
+                <target>Videos</target>
+            </trans-unit>
+            
+            <trans-unit id="12">
+                <source>R&amp;D</source>
+                <target>R&amp;D</target>
+            </trans-unit>
+            
+            <trans-unit id="13">
+                <source>Reasearch Projects</source>
+                <target>Projets de recherche</target>
+            </trans-unit>
+            
+            <trans-unit id="14">
+                <source>Industrial</source>
+                <target>Industriels</target>
+            </trans-unit>
+            
+            <trans-unit id="15">
+                <source>Regional</source>
+                <target>Régionaux</target>
+            </trans-unit>
+            
+            <trans-unit id="16">
+                <source>Academic</source>
+                <target>Académiques</target>
+            </trans-unit>
+            
+            <trans-unit id="17">
+                <source>Thesis</source>
+                <target>Thèses</target>
+            </trans-unit>
+            
+            <trans-unit id="18">
+                <source>Publications</source>
+                <target>Publications</target>
+            </trans-unit>
+            
+            <trans-unit id="19">
+                <source>Books</source>
+                <target>Livres</target>
+            </trans-unit>
+            
+            <trans-unit id="20">
+                <source>Articles</source>
+                <target>Articles</target>
+            </trans-unit>
+            
+            <trans-unit id="21">
+                <source>Book chapters</source>
+                <target>Chapitres de livres</target>
+            </trans-unit>
+            
+            <trans-unit id="22">
+                <source>Conferences</source>
+                <target>Conférences</target>
+            </trans-unit>
+            
+            <trans-unit id="23">
+                <source>Academic</source>
+                <target>Academiques</target>
+            </trans-unit>
+            
+            <trans-unit id="24">
+                <source>Information</source>
+                <target>Informations générales</target>
+            </trans-unit>
+            
+            <trans-unit id="25">
+                <source>Find us on</source>
+                <target>Retrouvez nous sur</target>
+            </trans-unit>
+            
         </body>
     </file>
 </xliff>

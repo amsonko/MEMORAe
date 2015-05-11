@@ -41,17 +41,17 @@
                                         <li  class="headerRight">
 					 <div class="dropdown">
 					  <button class="btn btn-default dropdown-toggle" type="button" id="actionHeader" data-toggle="dropdown" aria-expanded="true">
-					    other
+					    {{'other'|trans}}
 					    <span class="caret"></span>
 					  </button> 
 					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-					  	  <li role="presentation" class="dropdown-header">Langue</li>  
-					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Francais</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Anglais</a></li>
+					  	  <li role="presentation" class="dropdown-header">{{'Language'|trans}}</li>  
+					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#">{{'French'|trans}}</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#">{{'English'|trans}}</a></li>
 					     <li role="presentation" class="divider"></li>
-					     <li role="presentation" class="dropdown-header">Admin</li> 
+					     <li role="presentation" class="dropdown-header">{{'Administration'|trans}}</li> 
 					    
-					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;LogIn</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;{{'Sign in'|trans}}</a></li>
 					  </ul>
 					</div>
 					</li>		
@@ -90,40 +90,40 @@
 			<nav class="navbar navbar-default navbar-fixed">
 				  <div class="container-fluid">
 				    <ul class="nav navbar-nav">
-				      <li role="presentation" class="acceuil active" > <a href="{{path('memorae_homepage',{'id':1})}}" ><span class="glyphicon glyphicon-home"></span>&nbsp;Accueil</a> 
+				      <li role="presentation" class="acceuil active" > <a href="{{path('memorae_homepage',{'id':1})}}" ><span class="glyphicon glyphicon-home"></span>&nbsp;{{'Home'|trans}}</a> 
 				      </li>
-				      <li role="presentation" class="wim"> <a href="{{path('memorae_homepage',{'id':2})}}" ><span class="glyphicon glyphicon-folder-open"></span>&nbsp;Qu'est ce que Memorae</a>
+				      <li role="presentation" class="wim"> <a href="{{path('memorae_homepage',{'id':2})}}" ><span class="glyphicon glyphicon-folder-open"></span>&nbsp;{{'What is Memorae'|trans}}</a>
 				       </li>
 				      <li role="presentation" class="dropdown documentation" > 
-                                            <a data-toggle="dropdown"  href="#">Documentation<b class="caret"></b></a>
+                                            <a data-toggle="dropdown"  href="#">{{'Documentation'|trans}}<b class="caret"></b></a>
                                             <ul class="dropdown-menu">
-                                              <li><a href="{{path('memorae_homepage',{'id':3})}}" ><span class="glyphicon glyphicon-file"></span>&nbsp;Document</a></li>
-                                              <li><a href="{{path('memorae_homepage',{'id':4})}}" ><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;Video</a></li>
+                                              <li><a href="{{path('memorae_homepage',{'id':3})}}" ><span class="glyphicon glyphicon-file"></span>&nbsp;{{'Documents'|trans}}</a></li>
+                                              <li><a href="{{path('memorae_homepage',{'id':4})}}" ><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;{{'Videos'|trans}}</a></li>
                                             </ul>
                                       </li>
 				      <li role="presentation">
-                                            <a data-toggle="dropdown" href="#">R&D<b class="caret"></b></a>
+                                            <a data-toggle="dropdown" href="#">{{'R&D'|trans}}<b class="caret"></b></a>
                                             <ul class="dropdown-menu">
                                               <li class="dropdown-submenu">
-                                                <a tabindex="-1" href="#">Projets</a>
+                                                <a tabindex="-1" href="#">{{'Reasearch Projects'|trans}}</a>
                                                     <ul class="dropdown-menu">
-                                                      <li><a href="{{path('memorae_homepage',{'id':6})}}" >&nbsp;Industriels</a></li>
-                                                      <li><a href="{{path('memorae_homepage',{'id':7})}}" >&nbsp;Regionaux</a></li>
-                                                      <li><a href="{{path('memorae_homepage',{'id':8})}}" >&nbsp;Académiques</a></li>
+                                                      <li><a href="{{path('memorae_homepage',{'id':6})}}" >&nbsp;{{'Industrial'|trans}}</a></li>
+                                                      <li><a href="{{path('memorae_homepage',{'id':7})}}" >&nbsp;{{'Regional'|trans}}</a></li>
+                                                      <li><a href="{{path('memorae_homepage',{'id':8})}}" >&nbsp;{{'Academic'|trans}}</a></li>
 
                                                     </ul>
                                                   
                                                </li>
-                                               <li><a href="{{path('memorae_homepage',{'id':5})}}" >&nbsp;Theses</a></li>
+                                               <li><a href="{{path('memorae_homepage',{'id':5})}}" >&nbsp;{{'Thesis'|trans}}</a></li>
                                             </ul>
                                       </li>
                                       <li role="presentation">
-                                            <a data-toggle="dropdown" href="#">Publications<b class="caret"></b></a>
+                                            <a data-toggle="dropdown" href="#">{{'Publications'|trans}}<b class="caret"></b></a>
                                             <ul class="dropdown-menu">
-                                              <li><a href="{{path('memorae_homepage',{'id':9})}}" >&nbsp;Livres</a></li>
-                                              <li><a href="{{path('memorae_homepage',{'id':10})}}" >&nbsp;Articles</a></li>
-                                               <li><a href="{{path('memorae_homepage',{'id':11})}}" >&nbsp;Chapitre Livre</a></li>
-                                                <li><a href="{{path('memorae_homepage',{'id':12})}}" >&nbsp;Conference</a></li>
+                                              <li><a href="{{path('memorae_homepage',{'id':9})}}" >&nbsp;{{'Books'|trans}}</a></li>
+                                              <li><a href="{{path('memorae_homepage',{'id':10})}}" >&nbsp;{{'Articles'|trans}}</a></li>
+                                               <li><a href="{{path('memorae_homepage',{'id':11})}}" >&nbsp;{{'Book chapters'|trans}}</a></li>
+                                                <li><a href="{{path('memorae_homepage',{'id':12})}}" >&nbsp;{{'Conferences'|trans}}</a></li>
                                             </ul>
                                       </li>
 				    </ul>
@@ -140,7 +140,7 @@
    <footer id="footer">
 	<div class="container">
 		<div class="infoGenerale">
-			<h5> informations génerales</h5><br/>
+			<h5> {{'Information'|trans}}</h5><br/>
 			<div>
 			Marie-Hélène Abel Associate professor<br/>
 			Joint Laboratory HEUDIASYC<br/>
@@ -151,7 +151,7 @@
 			</div>
 		</div>
 		<div class="contactExterne">
-			<h5>Retrouverz nous sur </h5>
+			<h5>{{'Find us on'|trans}} </h5>
                    <ul>
                     <li><a href="#"><img src="{{asset('images/facebook.png')}}" alt="logo facebook">&nbsp;&nbsp;Facebook</a></li><br/>
                     <li><a href="#"><img src="{{asset('images/twitter.png')}}" alt="logo twitter">&nbsp;&nbsp;twitter</a></li><br/>

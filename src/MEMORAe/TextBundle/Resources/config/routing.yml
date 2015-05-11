@@ -1,5 +1,5 @@
 memorae_homepage:
-    pattern:  /{id}
+    pattern: /{id}
     defaults: { _controller: MEMORAeTextBundle:Page:index,id:1}
     requirements:
         _method:  GET
