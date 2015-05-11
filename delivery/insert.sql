@@ -63,4 +63,11 @@ INSERT INTO Media (media_id, media_language, current_media, page_id, media_conte
 INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(5, 'fr', 'text', 1, 'Avec l’approche MEMORAe, nous avons souhaité modéliser et concevoir une plateforme web permettant de gérer l’ensemble des ressources hétérogènes de connaissances circulant dans une organisation.');
 
 
+-- activation des sous menus de r&d 
 
+INSERT INTO Page (page_id, page_name) VALUES(5,' Projets de  Recherche');
+INSERT INTO Page (page_id, page_name) VALUES(6,' Thèses');
+
+-- ******ARRENTION CES DEUX lignes seront à supprimer après c'est juste pour empecher que le resultat de la  requete ne devient nul 
+INSERT INTO Media (media_id,media_name, media_language, current_media, page_id, media_content) VALUES(16,'industriels', 'fr', 'text',5, 'projets industriel de la plateforme memorae');
+INSERT INTO Media (media_id, media_language, current_media, page_id, media_content) VALUES(17, 'fr', 'text',6, 'theses du projet memorae');
