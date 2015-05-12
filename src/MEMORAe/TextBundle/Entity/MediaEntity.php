@@ -24,22 +24,22 @@ class MediaEntity {
      */
     private $id;   
     /**
-     * @ORM\Column(name="media_name", type="string", length=255)
+     * @ORM\Column(name="media_name", type="string", length=255, nullable=true)
      */
     private $name;
     
     /**
-     * @ORM\Column(name="media_path", type="text")
+     * @ORM\Column(name="media_path", type="text", nullable=true)
      */
     private $path;
     
     /**
-     * @ORM\Column(name="media_content", type="text")
+     * @ORM\Column(name="media_content", type="text", nullable=true)
      */
     private $content;
     
     /**
-     * @ORM\Column(name="current_media", type="string")
+     * @ORM\Column(name="media_type", type="string", nullable=true)
      */
     private $type;
     
@@ -54,6 +54,11 @@ class MediaEntity {
      **/
     private $page;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="SectionEntity", inversedBy="medias")
+     * @ORM\JoinColumn(name="section_id", referencedColumnName="section_id", nullable=true)
+     **/
+    private $section;
     /**
      * Get id
      *
@@ -200,5 +205,28 @@ class MediaEntity {
     public function getPage()
     {
         return $this->page;
+    }
+
+    /**
+     * Set section
+     *
+     * @param \MEMORAe\TextBundle\Entity\SectionEntity $section
+     * @return MediaEntity
+     */
+    public function setSection(\MEMORAe\TextBundle\Entity\SectionEntity $section = null)
+    {
+        $this->section = $section;
+
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return \MEMORAe\TextBundle\Entity\SectionEntity 
+     */
+    public function getSection()
+    {
+        return $this->section;
     }
 }

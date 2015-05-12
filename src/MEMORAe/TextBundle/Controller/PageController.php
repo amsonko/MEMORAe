@@ -37,7 +37,14 @@ class PageController extends Controller
         switch($pageId)
         {
             case 1:
-                return $this->render("MEMORAeTextBundle:Page:home.html.twig", array('medias' =>$media));
+                $media =$repository->findBy(array("page" => $pageId, "type"=>"text"));
+                $video =$repository->findOneBy(array("page" => $pageId, "type"=>"video"));
+                
+                if (!$video) {
+                    throw $this->createNotFoundException('Unable to find any video for page with the id '.$pageId);
+                }
+                return $this->render("MEMORAeTextBundle:Page:home.html.twig", array('medias' =>$media, 'video'=>$video));
+                
             case 2:
                 return $this->render("MEMORAeTextBundle:Page:whatIsMemorae.html.twig", array('wim' =>$media));
             case 3:

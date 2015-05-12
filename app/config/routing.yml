@@ -1,3 +1,7 @@
+memor_ae_user:
+    resource: "@MEMORAeUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 memor_ae_text:
     resource: "@MEMORAeTextBundle/Resources/config/routing.yml"
     prefix:   /
@@ -5,3 +9,6 @@ memor_ae_text:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

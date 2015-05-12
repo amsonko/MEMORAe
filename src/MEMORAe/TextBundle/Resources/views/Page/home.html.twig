@@ -9,12 +9,12 @@
            <div class=" acceuilTextContent"> 
             {% for contenu in medias %} 
                 <p>
-                   {{contenu.content }}
+                    {{contenu.content|raw }}
                    </p>
             {% endfor %} 
            </div>
             <div>
-                <a href="" class="moreText">see more &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+                <a href="" class="moreText">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
 				   	 
             </div>
         
@@ -24,13 +24,13 @@
          <div class="row">
 				  <div class="col-xs-12 col-sm-12 col-md-12">
 				    <div class="thumbnail">
-				    	<video  src="{{asset('videos/weed.mp4')}}" controls ></video>
+				    	<video  src="{{asset('videos/'~ video.path)}}" controls ></video>
 				      <div class="caption videoCaption">
-				        <h4>Presentation</h4>
-				        <p>Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées, issues d’un processus formel ou informel au sein d’un groupe d’individus </p>
+				        <h4>{{video.name}}</h4>
+				        <p>{{video.content|raw}}</p>
 				        <p>
-				        	<a href="{{path('memorae_homepage',{'id':4})}}">see more &nbsp;<span class="glyphicon glyphicon-link"></span></a>
-				   		 </p>
+                                            <a href="{{path('memorae_homepage',{'id':4})}}">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-link"></span></a>
+                                        </p>
 				        
 				      </div>
 				    </div>

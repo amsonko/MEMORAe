@@ -127,6 +127,11 @@
                 <target>Retrouvez nous sur</target>
             </trans-unit>
             
+            <trans-unit id="26">
+                <source>see more</source>
+                <target>voir plus</target>
+            </trans-unit>
+            
         </body>
     </file>
 </xliff>

@@ -1,0 +1,8 @@
+services:
+#    memor_ae_user.example:
+#        class: MEMORAe\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    memorae_user.registration.form.type:
+        class: MEMORAe\UserBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type, alias: memorae_user_registration }
