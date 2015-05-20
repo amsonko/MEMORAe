@@ -1,7 +1,9 @@
 $(document).ready(function(){
     
    helpFunction.lanceAllPlugin();
-   var $contener=$("#these");
-    var $objet=$(".rd");
+    var $contener=$("#recherche");
+    var $objet=$(".publication");
    helpFunction.gestionActiveMenu($objet,$contener,"menu");
+   
+  alert("je suis dans publication");
 });

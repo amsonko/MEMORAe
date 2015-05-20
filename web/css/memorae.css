@@ -21,9 +21,8 @@ height:150%;
 }
 .memoraeHeader ul{
 	width:100%;
-	height: 100%;
-	margin:none;
-	padding:none;
+	height:80%;
+	
 }
 
 .headerRight button{
@@ -47,6 +46,11 @@ height:150%;
     max-width: 10% !important;
     max-height: 70px !important;
     overflow: hidden !important;
+}
+.logo img {
+    width: 100%;
+    height: 60px;
+    margin-top: 10px !important;
 }
 .memoraeHeader .headerRight img {
     width: 65px;
@@ -197,14 +201,14 @@ text-align: justify
     height:180px !important;
 
  }
-  .thumbnail > iframe{
+  .thumbnail > video{
     display: block;
     max-width:98% !important;
     margin-left: 3%;
     margin-top: 1%;
 
  }
- #video iframe{
+ #video video{
       height:180px !important;
       margin-left: 1% !important;
  }
@@ -222,32 +226,23 @@ text-align: justify
  }
  
 
-.blockVideo,.blockImageTexte {
-    margin: 1em;
-    overflow: hidden !important;
-    padding:1px !important ;
-}
-
 .blockImageTexte {
     height: 100px !important;
+    margin: 1em;
+    overflow: hidden !important;
+     padding:1px !important ;
 }
-
-
 .blockImageTexte img{
     height:100% !important;
     margin-right:2em !important;
      overflow:hidden !important ;
-     width:6% !important 
+     width:7% !important 
     
 }
 .blockImageTexte img:hover{
     border:1px solid blue;
 }
-
-
-.blockVideo iframe {
-    height: 13em !important;
-    margin-right: 2em !important;
-    overflow: hidden !important;
-    width: 22% !important;
+#filterRecherche input {
+    width: 290px;
+    margin-top: 3px !important;
 }
