@@ -75,13 +75,8 @@ class PageController extends Controller
                     throw $this->createNotFoundException('Unable to find any section for the page what is memorae');
                 }
                 return $this->render("MEMORAeTextBundle:Page:these.html.twig", array('theses' =>$sections));
-            case 8:
-                $text =$mediaRepository->findOneBy(array("page" => 1, "type"=>"text"));
-                $this->cakeRequest['id']=$text->getId();
-                echo" id avant submit".$this->cakeRequest['id'];
-                $form = $this->createForm(new AdminHome(), $text);
-                
-                return $this->render("MEMORAeTextBundle:Page:adminHome.html.twig", array("text" => $form->createView()));
+            case 7:
+                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$media,'publication'=>true));
         }
                 
     }
