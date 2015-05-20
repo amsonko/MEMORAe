@@ -1,0 +1,25 @@
+{% extends 'MEMORAeTextBundle::adminLayout.html.twig' %}
+
+{% block body -%}
+    
+    {{ form_start(edit_form) }}
+    <div>
+        {{ form_label(edit_form.name, 'Titre de la vidéo') }}
+        {{ form_errors(edit_form.name) }}
+        {{ form_widget(edit_form.name) }}
+    </div>
+    
+    <div>
+        {{ form_label(edit_form.path, 'Description de la vidéo') }}
+        {{ form_errors(edit_form.path) }}
+        {{ form_widget(edit_form.path) }}
+    </div>
+    
+    <div>
+        {{ form_label(edit_form.content, 'Contenu') }}
+        {{ form_errors(edit_form.content) }}
+        {{ form_widget(edit_form.content) }}
+    </div>
+    <input type="submit" value="Update"/> 
+    {{ form_end(edit_form) }}
+{% endblock %}

@@ -9,6 +9,7 @@ namespace MEMORAe\TextBundle\Entity;
  */
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="MEMORAe\TextBundle\Repository\MediaEntityRepository")
@@ -18,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
 class MediaEntity {
     /**
      * @ORM\Id
-     * @ORM\Column(name="media_id", type="bigint")
+     * @ORM\Column(name="media_id", type="bigint", nullable=false)
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="media_pk_seq")
      */
@@ -44,13 +45,13 @@ class MediaEntity {
     private $type;
     
     /**
-     * @ORM\Column(name="media_language", type="string")
+     * @ORM\Column(name="media_language", type="string", nullable=true)
      */
     private $language;
     
     /**
      * @ORM\ManyToOne(targetEntity="PageEntity", inversedBy="medias")
-     * @ORM\JoinColumn(name="page_id", referencedColumnName="page_id", nullable=false)
+     * @ORM\JoinColumn(name="page_id", referencedColumnName="page_id", nullable=true)
      **/
     private $page;
 
@@ -59,6 +60,12 @@ class MediaEntity {
      * @ORM\JoinColumn(name="section_id", referencedColumnName="section_id", nullable=true)
      **/
     private $section;
+    
+    /**
+     * @Assert\File
+     */
+    public $file;
+    
     /**
      * Get id
      *
@@ -228,5 +235,58 @@ class MediaEntity {
     public function getSection()
     {
         return $this->section;
+    }
+    
+    public function getAbsolutePath()
+    {
+        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->path ? null : $this->getUploadDir().'/'.$this->path;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+        // le document/image dans la vue.
+        return 'uploads/documents';
+    }
+    
+    /**
+     * Dans le cas des fichiers, on met dans path le chemin vers le fichier
+     * @return type
+     */
+    public function uploadFile(){
+        if (null === $this->file) {
+            return;
+        }
+        
+        $extension = $this->file->guessExtension();
+        if (!$extension) {
+            $extension = 'bin';
+        }
+        
+        $fileName = rand(1, 99999).'.'.$extension;
+        $this->file->move($this->getUploadRootDir(), $fileName);
+        
+        //Créons le miniature
+//        $imagick = new \Imagick();
+//        if($imagick->readImage($this->getAbsolutePath()) == true){
+//            echo'bien passé';die();
+//        }
+//        else{
+//            echo'pas bien passé';die();
+//        }
+//        $imagick->writeImage('output.jpg');
+        $this->path = $fileName;
+        $this->file = null;
     }
 }

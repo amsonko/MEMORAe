@@ -8,17 +8,25 @@ INSERT INTO Page (page_id, page_name) VALUES(3,'Document');
 INSERT INTO Page (page_id, page_name) VALUES(4,'Video');
 INSERT INTO Page (page_id, page_name) VALUES(5,'Projets de recherche');
 INSERT INTO Page (page_id, page_name) VALUES(6,'Thèses');
+INSERT INTO Page (page_id, page_name) VALUES(7,'Publications');
 
-INSERT INTO Section (section_id, section_name) VALUES(1,'Thesis');
-INSERT INTO Section (section_id, section_name) VALUES(2,'HDR');
-INSERT INTO Section (section_id, section_name) VALUES(3,'Industrial');
-INSERT INTO Section (section_id, section_name) VALUES(4,'Academic');
-INSERT INTO Section (section_id, section_name) VALUES(5,'Regional');
-INSERT INTO Section (section_id, section_name) VALUES(6,'Books');
-INSERT INTO Section (section_id, section_name) VALUES(7,'Book Chapters');
-INSERT INTO Section (section_id, section_name) VALUES(8,'Articles');
-INSERT INTO Section (section_id, section_name) VALUES(9,'Conferences');
-
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(1,'Thesis', 'fr', 6);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(2,'HDR', 'fr', 6);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(3,'Industrial', 'fr', 5);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(4,'Academic', 'fr', 5);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(5,'Regional', 'fr', 5);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(6,'Books', 'fr', 7);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(7,'Book Chapters', 'fr', 7);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(8,'Articles', 'fr', 7);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(9,'Conferences', 'fr', 7);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(10, 'Plateforme intégrée', 'fr', 2);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(11, 'Référentiel commun', 'fr', 2);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(12, 'Organisation des ressources', 'fr', 2);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(13, 'Espaces de partage', 'fr', 2);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(14, 'Ressources', 'fr', 2);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(15, 'Bookmarks', 'fr', 2);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(16, 'Trace d''interaction', 'fr', 2);
+INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(17, 'Réseau social d''entreprise', 'fr', 2);
 
 --Insertion dans la page d'accueil
 
@@ -29,48 +37,22 @@ INSERT INTO Media (media_id, media_language, media_type, page_id, media_content)
 <p>L’usage d’une carte sémantique permet de définir un référentiel commun dans lequel il est possible de naviguer pour accéder aux ressources capitalisées dans différents espaces. Ces espaces sont visibles en parallèle et facilitent le transfert de connaissances entre individus.</p>
 ');
 
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(23, 'stand up about pimp', 'fr', 'video', 1, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'weed.mp4');
+INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(23, 'stand up about pimp', 'fr', 'video', 1, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'https://www.youtube.com/embed/oqe3HvVf8nk');
 
 --Insertion dans la page Qu'est ce que Memorae
 
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content) VALUES(2, 'Plateforme intégrée', 'fr', 'text', 2, 'Une des forces de la plateforme MEMORAe est son intégration complète de toutes les fonctionnalités nécessaires pour héberger un serveur de collaboration et de capitalisation des connaissances. Elle inclut toutes ses fonctionnalités au sein d''une même application : il ne s''agit pas d''une association de différents logiciels offrant les fonctionnalités désirées.');
-
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content) VALUES(3, 'Référentiel commun', 'fr', 'text', 2, 'Représentation d’un référentiel commun au moyen d’un standard du web sémantique (OWL).
-Création, importation/exportation du référentiel commun.
-Navigation au sein d''une cartographie de connaissances illustrant le
-référentiel commun ;
-Le focus sur la carte permet d''afficher en parallèle l''ensemble des ressources qu''il indexe distribuées dans les espaces de partage accessible par l''utilisateur. Ces ressources peuvent êtres issues d’un chat, d''une base documentaire, d''un wiki, d''un agenda, etc.');
-
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content) VALUES(4, 'Organisation des ressources', 'fr', 'text', 2, '
-L''organisation des ressources se fait :
-<p>autour du référentiel commun et permet différents accès sur les ressources suivant leur description sémantique, toute ressource peut être indexée par son contenu (les concepts qu''elle traite) ou son contenant (auteur, date de création, etc.) ;</p>
-<p>selon les droits d''accès de l''utilisateur sur les espaces de partage permettant de les visualiser.</p>'
-);
 
 
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content) VALUES(5, 'Espaces de partage', 'fr', 'text', 2,
-'<p>Un espace de partage permet de rendre visible un ensemble de ressources partagées par les membres de cet espace. Une même ressource peut être visible dans différents espaces, elle reste cependant stockée à un endroit unique.</p>
-<p>Chaque utilisateur possède un espace de partage accessible que par lui-même (privé).</p>
-<p>La visualisation des espaces partagés en parallèle facilite le transfert de ressources d’un espace à l''autre et donc le partage : glisser-déposer.</p>'
-);
-
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content) VALUES(6, 'Ressources', 'fr', 'text', 2,
-'<p>Modélisation de ressources documentaires et/ou issues d’un processus social (fichier pdf, forum sémantique, chat sémantique, wiki sémantique agenda sémantique, etc.).</p>
-<p>Modélisation de ressources humaines : qui sait quoi ?</p>
-<p>Annotation de ressources, parties de ressources ou de concepts (composants du référentiel commun) ; L’annotation est elle-même
-considérée comme une ressource. Elle est donc accessible dans les espaces de partage en tant que ressource ou via la ressource annotée.</p>'
-);
-
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content) VALUES(7, 'Bookmarks', 'fr', 'text', 2,
+INSERT INTO Media (media_id, media_name, media_type, media_content, media_path, section_id) VALUES(7, 'Titre', 'video',
 '<p>Un bookmarks est un ensemble de points d''entrée sur le référentiel commun identifiés par les membres d''un espace de partage </p>
-<p>Un bookmarks est associé à chaque espace de partage</p>'
-);
+<p>Un bookmarks est associé à chaque espace de partage</p>', 'https://www.youtube.com/embed/oqe3HvVf8nk', 15);
 
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content) VALUES(8, 'Trace d''interaction', 'fr', 'text', 2,
-'<p>Module de présentation des activités réalisées au sein de la plateforme selon différents critères.</p>');
+INSERT INTO Media (media_id, media_name, media_type, media_content, media_path, section_id) VALUES(8, 'Titre', 'video',
+'<p>Module de présentation des activités réalisées au sein de la plateforme selon différents critères.</p>', 'https://www.youtube.com/embed/oqe3HvVf8nk', 16);
 
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content) VALUES(9, 'Réseau social d''entreprise', 'fr', 'text', 2,
-'<p>La plateforme gère son propre réseau social d’entreprise/organisation..</p>');
+INSERT INTO Media (media_id, media_name, media_type, media_content, media_path, section_id) VALUES(9, 'Titre', 'video',
+'<p>La plateforme gère son propre réseau social d’entreprise/organisation..</p>', 'https://www.youtube.com/embed/7I9PFi0ftdE', 17);
+
 
 --Jeux de données pour les documents
 
@@ -79,22 +61,34 @@ INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, me
 INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(12, 'Salsa', 'fr', 'file', 3, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance7.jpg');
 
 -- Jeux de données pour les vidéos
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(13, 'stand up about pimp', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'pimp.mp4');
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(14, 'Katt Williams', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'weed.mp4');
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(15, 'Katt Williams', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'religion.mp4');
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(16, 'Katt Williams', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'nasa.mp4');
+INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(13, 'stand up about pimp', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'https://www.youtube.com/embed/7I9PFi0ftdE');
+INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(14, 'Katt Williams', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'https://www.youtube.com/embed/oqe3HvVf8nk');
+INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(15, 'Katt Williams', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'https://www.youtube.com/embed/LR6YSWgdzpc');
+INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, media_content, media_path) VALUES(16, 'Katt Williams', 'fr', 'video', 4, 'Le cœur de l’innovation concerne l’organisation autour d’une carte de connaissances de l’ensemble des ressources privées ou partagées', 'https://www.youtube.com/embed/S1C4wbrXvDI');
 
---jeux de données pour les projets de recherche et les publications
+--jeux de données pour les projets de recherche
 
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, section_id, media_content, media_path) VALUES(17, 'Kenya', 'fr', 'file', 5, 3, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance1.jpg');
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, section_id, media_content, media_path) VALUES(18, 'Azonto', 'fr', 'file', 5, 3, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance2.jpg');
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, section_id, media_content, media_path) VALUES(19, 'Salsa', 'fr', 'file', 5, 5, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance7.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(17, 'Kenya', 'file', 3, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance1.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(18, 'Azonto', 'file', 3, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance2.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(19, 'Salsa', 'file', 5, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance7.jpg');
 
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, section_id, media_content, media_path) VALUES(20, 'Kenya', 'fr', 'file', 5, 7, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance1.jpg');
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, section_id, media_content, media_path) VALUES(21, 'Azonto', 'fr', 'file', 5, 9, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance2.jpg');
-INSERT INTO Media (media_id, media_name, media_language, media_type, page_id, section_id, media_content, media_path) VALUES(22, 'Salsa', 'fr', 'file', 5, 9, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance7.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(20, 'Kenya', 'file', 7, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance1.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(21, 'Azonto', 'file', 9, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance2.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(22, 'Salsa', 'file', 9, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance7.jpg');
+
+--Jeux de données pour la page de thèses
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(24, 'Kenya', 'file', 1, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance1.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(25, 'Azonto', 'file', 1, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance2.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(26, 'Salsa', 'file', 1, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance7.jpg');
+
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(27, 'Kenya', 'file', 2, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance1.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(28, 'Azonto', 'file', 2, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance2.jpg');
+INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, media_path) VALUES(29, 'Salsa', 'file', 2, 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'dance7.jpg');
 
 COMMIT;
+
+
+alter sequence media_pk_seq restart with 30;
 
 
 

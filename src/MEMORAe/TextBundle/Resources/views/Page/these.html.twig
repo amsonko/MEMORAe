@@ -1,0 +1,36 @@
+{% extends 'MEMORAeTextBundle::index.html.twig' %}
+ {% block javascripts %}
+     {{ parent()}}
+     <script src="{{asset('JavaScript/plugins/accordion.js')}}"></script>
+     <script src="{{asset('JavaScript/these.js')}}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent()}}
+    <link rel="stylesheet" href="{{asset('css/accordion.css')}}"/>
+{% endblock %}
+
+{% block These %}
+    <div id="theseAccordion" class="accordion ui-widget ui-helper-reset">
+        {% for section in theses %}
+            <artical class="ac-panel">
+                <header class="ac-header ui-helper-reset ui-state-default">{{section.name}}</header>
+                <section class="ac-content ui-helper-reset ui-widget-content">
+                    {% for these in section.medias %}
+                        <div class="thumbnail blockImageTexte">
+                            <img src="{{asset('images/' ~ these.path)}}" class=" pull-left img-rounded"
+                                alt="Generic placeholder thumbnail">
+                             <div class="caption">
+                                 <h4>{{these.name}}</h4>
+                                 <p>{{these.content}}</p>
+                             </div>
+                        </div>
+                    {% endfor %}
+                </section>
+            </artical>
+        {% endfor %}
+    </div>
+      
+      
+      
+{% endblock %}

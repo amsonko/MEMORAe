@@ -41,6 +41,7 @@ body {
 }
 
 .ac-content {
+    height: 18em !important;
     display: none;
     padding: 0.5em 0.5em 0em 0.5em !important;
     border-top: 0px none;

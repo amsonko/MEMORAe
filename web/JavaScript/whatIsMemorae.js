@@ -4,7 +4,7 @@ $(document).ready(function(){
     var $objet=$(".wim");
     helpFunction.gestionActiveMenu($objet,$contener,"menu");
     
-    $('#wimAccordion').Accordion({
+    $('#videos').Accordion({
         
         // close the panel if you click somewhere outside of the accordion
         outsideClose:false,

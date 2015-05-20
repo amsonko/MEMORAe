@@ -1,0 +1,22 @@
+section_new:
+    path:     /{type}-{page}/new
+    defaults: { _controller: "MEMORAeTextBundle:SectionEntity:new" }
+
+section_create:
+    path:     /{type}-{page}/create
+    defaults: { _controller: "MEMORAeTextBundle:SectionEntity:create" }
+    methods:  POST
+
+section_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MEMORAeTextBundle:SectionEntity:edit" }
+
+section_update:
+    path:     /{id}/update
+    defaults: { _controller: "MEMORAeTextBundle:SectionEntity:update" }
+    methods:  [POST, PUT]
+
+section_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MEMORAeTextBundle:SectionEntity:delete" }
+    methods:  [POST, DELETE]

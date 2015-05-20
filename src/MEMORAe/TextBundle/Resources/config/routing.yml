@@ -1,3 +1,15 @@
+memorae_section:
+    resource: "@MEMORAeTextBundle/Resources/config/routing/sectionentity.yml"
+    prefix:   /section
+
+memorae_media:
+    resource: "@MEMORAeTextBundle/Resources/config/routing/mediaentity.yml"
+    prefix:   /media
+
+memorae_admin:
+    resource: "@MEMORAeTextBundle/Resources/config/routing/adminPage.yml"
+    prefix: /administrer
+    
 memorae_homepage:
     pattern: /{id}
     defaults: { _controller: MEMORAeTextBundle:Page:index,id:1}

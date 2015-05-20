@@ -1,0 +1,3 @@
+accueil_admin:
+    path:     /
+    defaults: { _controller: "MEMORAeTextBundle:AdminPage:index" }

@@ -1,0 +1,18 @@
+{% block body -%}
+
+    {%if entity.type == 'file'%}
+        <form action="{{ path('media_create', { 'type': entity.type }) }}" method="post" {{ form_enctype(form) }}>
+    {%endif%}
+        {{ form(form) }}
+    {%if entity.type == 'file'%}
+        </form>
+    {%endif%}
+
+    <ul class="record_actions">
+    <li>
+        <a href="{{ path('accueil_admin') }}">
+            {{'Back to the list'|trans}}
+        </a>
+    </li>
+</ul>
+{% endblock %}

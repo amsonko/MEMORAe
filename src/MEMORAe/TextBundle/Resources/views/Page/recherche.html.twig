@@ -1,0 +1,53 @@
+{% extends 'MEMORAeTextBundle::index.html.twig' %}
+ 
+{% block javascripts %}
+     {{ parent()}}
+     <script src="{{asset('JavaScript/recherche.js')}}"></script>
+{% endblock %}
+    {% block Recherche %}
+	<div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 ">
+
+                {% for section in recherche %}
+                    {% for projet in section.medias %}
+                        <div class="thumbnail blockImageTexte">
+                            <img src="{{asset('images/'~projet.path)}}" class=" pull-left img-rounded"
+                             alt="Generic placeholder thumbnail">
+                            <div class="caption">
+                                <h4>{{projet.name}}</h4>
+                                <p>{{projet.content|raw}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                                      {#<div class="thumbnail blockImageTexte">
+				     <img src="../images/dance1.jpg" class=" pull-left img-rounded"
+				         alt="Generic placeholder thumbnail">
+				      <div class="caption">
+				        <h4>Titre 2</h4>
+				        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>     
+				      </div>
+				    </div>	
+                                      <div class="thumbnail blockImageTexte">
+				     <img src="../images/dance2.jpg" class=" pull-left img-rounded"
+				         alt="Generic placeholder thumbnail">
+				      <div class="caption">
+				        <h4>Titre 3</h4>
+				        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>     
+				      </div>
+				    </div>	
+                                      <div class="thumbnail blockImageTexte">
+				     <img src="../images/dance7.jpg" class=" pull-left img-rounded"
+				         alt="Generic placeholder thumbnail">
+				      <div class="caption">
+				        <h4>titre 4</h4>
+				        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>     
+				      </div>
+				    </div>	#}
+                                  </div>   
+            </div> 
+      
+      
+      
+      
+      {% endblock %}

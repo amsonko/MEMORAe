@@ -4,6 +4,7 @@ $(document).ready(function(){
    var $contener=$("#video");
     var $objet=$(".documentation");
    helpFunction.gestionActiveMenu($objet,$contener,"menu");
+   
 });
 
 

@@ -34,6 +34,11 @@ class PageEntity {
     private $medias;
     
     /**
+     * @ORM\OneToMany(targetEntity="SectionEntity", mappedBy="page")
+     */
+    private $sections;
+    
+    /**
      * Constructor
      */
     public function __construct()
@@ -105,5 +110,38 @@ class PageEntity {
     public function getMedias()
     {
         return $this->medias;
+    }
+
+    /**
+     * Add sections
+     *
+     * @param \MEMORAe\TextBundle\Entity\SectionEntity $sections
+     * @return PageEntity
+     */
+    public function addSection(\MEMORAe\TextBundle\Entity\SectionEntity $sections)
+    {
+        $this->sections[] = $sections;
+
+        return $this;
+    }
+
+    /**
+     * Remove sections
+     *
+     * @param \MEMORAe\TextBundle\Entity\SectionEntity $sections
+     */
+    public function removeSection(\MEMORAe\TextBundle\Entity\SectionEntity $sections)
+    {
+        $this->sections->removeElement($sections);
+    }
+
+    /**
+     * Get sections
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSections()
+    {
+        return $this->sections;
     }
 }

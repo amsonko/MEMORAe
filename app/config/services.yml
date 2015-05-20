@@ -4,6 +4,14 @@ parameters:
 #    parameter_name: value
 
 services:
+    media_service:
+        class: MEMORAe\TextBundle\Controller\MediaEntityController
+        calls:
+            - [ setContainer, [ @service_container ]]
+    section_service:
+        class: MEMORAe\TextBundle\Controller\SectionEntityController
+        calls:
+            - [ setContainer, [ @service_container ]]
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

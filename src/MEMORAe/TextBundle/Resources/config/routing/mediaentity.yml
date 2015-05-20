@@ -1,0 +1,22 @@
+media_new:
+    path:     /{type}-{page}/new
+    defaults: { _controller: "MEMORAeTextBundle:MediaEntity:new" }
+
+media_create:
+    path:     /{type}-{page}/create
+    defaults: { _controller: "MEMORAeTextBundle:MediaEntity:create" }
+    methods:  POST
+
+media_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MEMORAeTextBundle:MediaEntity:edit" }
+
+media_update:
+    path:     /{id}/update
+    defaults: { _controller: "MEMORAeTextBundle:MediaEntity:update" }
+    methods:  [POST, PUT]
+
+media_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MEMORAeTextBundle:MediaEntity:delete" }
+    methods:  [POST, DELETE]

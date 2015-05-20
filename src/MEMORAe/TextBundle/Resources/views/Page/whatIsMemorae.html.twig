@@ -10,14 +10,26 @@
     <link rel="stylesheet" href="{{asset('css/accordion.css')}}"/>
 {% endblock %}
 
-{%if wim is defined %}
+{%if sections is defined %}
     {% block QMemorae %}
-        <div id="wimAccordion" class="accordion ui-widget ui-helper-reset">
-            {% for contenu in wim %}
+        <div id="videos" class="accordion ui-widget ui-helper-reset">
+            {% for section in sections %}
                 <artical class="ac-panel">
-                    <header class="ac-header ui-helper-reset ui-state-default">{{contenu.name}}</header>
+                    <header class="ac-header ui-helper-reset ui-state-default">{{section.name}}</header>
                     <section class="ac-content ui-helper-reset ui-widget-content">
-                        <p>{{contenu.content|raw}}</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="thumbnail blockVideo">
+                                    {%for media in section.medias %}
+                                        <iframe src="{{media.path}}"></iframe>
+                                         <div class="caption">
+                                             <h4>{{media.name|raw}}</h4>
+                                             <p>{{media.content|raw}}</p>
+                                         </div>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </artical>
             {% endfor %}

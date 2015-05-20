@@ -4,10 +4,10 @@
      <script src="{{asset('JavaScript/home.js')}}"></script>
   {% endblock %}
 
-{%if medias is defined %}
+{%if text is defined %}
 {% block InfoSection %} 
-           <div class=" acceuilTextContent"> 
-            {% for contenu in medias %} 
+           <div class="acceuilTextContent" id="acceuilTextContent"> 
+            {% for contenu in text %} 
                 <p>
                     {{contenu.content|raw }}
                    </p>
@@ -19,22 +19,24 @@
             </div>
         
  {% endblock %}
+ {% endif %}
+ {%if video is defined %}
  {% block VideoSection %} 
      
-         <div class="row">
-				  <div class="col-xs-12 col-sm-12 col-md-12">
-				    <div class="thumbnail">
-				    	<video  src="{{asset('videos/'~ video.path)}}" controls ></video>
-				      <div class="caption videoCaption">
-				        <h4>{{video.name}}</h4>
-				        <p>{{video.content|raw}}</p>
-				        <p>
-                                            <a href="{{path('memorae_homepage',{'id':4})}}">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-link"></span></a>
-                                        </p>
-				        
-				      </div>
-				    </div>
-				   </div>
+         <div class="row" id=""videos">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="thumbnail">
+                    <iframe  src="{{video.path}}" ></iframe>
+                <div class="caption videoCaption">
+                    <h4>{{video.name}}</h4>
+                    <p>{{video.content|raw}}</p>
+                    <p>
+                        <a href="{{path('memorae_homepage',{'id':4})}}">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-link"></span></a>
+                    </p>
+
+                </div>
+              </div>
+            </div>
 
 	</div> 
     

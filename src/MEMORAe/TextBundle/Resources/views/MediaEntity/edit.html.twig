@@ -1,0 +1,22 @@
+
+{% block body -%}
+
+    {%if entity.type == 'file'%}
+        <form action="{{ path('media_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    {%endif%}
+        {{ form(edit_form) }}
+    {%if entity.type == 'file'%}
+        </form>
+    {%endif%}
+    
+    <ul class="record_actions">
+    <li>
+        <a href="{{ path('accueil_admin') }}">
+            {{'Back to the list'|trans}}
+        </a>
+    </li>
+    {%if entity.type != 'text'%}
+        <li>{{ form(delete_form) }}</li>
+    {%endif%}
+    </ul>
+{% endblock %}

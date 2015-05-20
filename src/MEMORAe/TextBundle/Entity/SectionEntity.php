@@ -9,7 +9,7 @@ namespace MEMORAe\TextBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MEMORAe\TextBundle\Repository\SectionEntityRepository")
  * @ORM\Table(name="Section")
  */
 
@@ -31,6 +31,17 @@ class SectionEntity {
      * @ORM\OneToMany(targetEntity="MediaEntity", mappedBy="section")
      */
     private $medias;
+    
+    /**
+     * @ORM\Column(name="section_language", type="string")
+     */
+    private $language;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="PageEntity", inversedBy="sections")
+     * @ORM\JoinColumn(name="page_id", referencedColumnName="page_id", nullable=false)
+     **/
+    private $page;
     
     /**
      * Constructor
@@ -82,7 +93,6 @@ class SectionEntity {
     public function addMedia(\MEMORAe\TextBundle\Entity\MediaEntity $medias)
     {
         $this->medias[] = $medias;
-
         return $this;
     }
 
@@ -105,4 +115,51 @@ class SectionEntity {
     {
         return $this->medias;
     }
+
+    /**
+     * Set language
+     *
+     * @param string $language
+     * @return SectionEntity
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    /**
+     * Get language
+     *
+     * @return string 
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * Set page
+     *
+     * @param \MEMORAe\TextBundle\Entity\PageEntity $page
+     * @return SectionEntity
+     */
+    public function setPage(\MEMORAe\TextBundle\Entity\PageEntity $page)
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return \MEMORAe\TextBundle\Entity\PageEntity 
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+    
 }
