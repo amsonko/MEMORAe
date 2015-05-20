@@ -2,19 +2,100 @@
  
 {% block javascripts %}
      {{ parent()}}
-     <script src="{{asset('JavaScript/recherche.js')}}"></script>
+    {% if publication is defined  %}
+        <script src="{{asset('JavaScript/publication.js')}}"></script>
+     {% else %}
+          <script src="{{asset('JavaScript/recherche.js')}}"></script>
+      {% endif %}
   {% endblock %}
       {% block Recherche %}
-       {#  <div class="row">
-
-            <div class="col-lg-11  blockProjet">
-            <div class="col-xs-2 pull-left blockImage" >Emplacement de l'image</div>
-            <aside class="col-xs-9 blockContenu">
-              contenu textuel detaillant le livre 
-            </aside>
-            
-          </div>
-         </div>#}
+          {#<div class="col-lg-4 pull-right menuResearch">
+           <div id="filterRecherche" class="input-group" >
+                 <input type="text" class="form-control"  data-provide="typeahead">
+            <div class="input-group-btn">
+             <button type="button" class="btn btn-default"><span ></span></button>
+              
+              <select class="form-control" >
+                  <optgroup label="{{'Research Projects'|trans}}">
+                     <option>{{'Academic'|trans}}</option>
+                    <option>{{'Industrial'|trans}}</option>
+                     <option>{{'Regional'|trans}}</option>
+               </optgroup>  
+                    
+                <optgroup label="{{'Publications'|trans}}">
+                    
+                     <option>{{'Books'|trans}}</option>
+                     <option>{{'Articles'|trans}}</option>
+                     <option>{{'Book chapters'|trans}}</option>
+                     <option>{{'Conferences'|trans}}</option>
+                </optgroup>
+                  
+              </select>
+                <button type="button" class="btn btn-primary" >Validate</button>#}
+               {# <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  
+                    <li role="presentation" class="dropdown-header">{{'Research Projects'|trans}}</li>
+                    <li role="presentation" class="divider"></li>
+                     <li><a href="#">{{'Academic'|trans}}</a></li>
+                    <li><a href="#">{{'Industrial'|trans}}</a></li>
+                     <li><a href="#">{{'Regional'|trans}}</a></li>
+                     
+                     <li role="presentation" class="divider"></li>
+                     <li role="presentation" class="dropdown-header">{{'Publications'|trans}}</li>
+                     <li role="presentation" class="divider"></li>
+                     
+                     <li><a href="#">{{'Books'|trans}}</a></li>
+                     <li><a href="#">{{'Articles'|trans}}</a></li>
+                     <li><a href="#">{{'Book chapters'|trans}}</a></li>
+                     <li><a href="#">{{'Conferences'|trans}}</a></li>
+                </ul>#}
+             {#  </div>
+          </div>#}
+          {# <div class="row">
+            <div class="col-lg-6">
+            <form class="navbar-form navbar-left" role="search">
+               
+              <div class="form-group">
+               <select class="form-control" placeholder="chercher une categorie" >
+                    <option>ALL</option>
+                  <optgroup label="{{'Research Projects'|trans}}">
+                     <option>{{'Academic'|trans}}</option>
+                    <option>{{'Industrial'|trans}}</option>
+                     <option>{{'Regional'|trans}}</option>
+               </optgroup>  
+                    
+                <optgroup label="{{'Publications'|trans}}">
+                    
+                     <option>{{'Books'|trans}}</option>
+                     <option>{{'Articles'|trans}}</option>
+                     <option>{{'Book chapters'|trans}}</option>
+                     <option>{{'Conferences'|trans}}</option>
+                </optgroup>
+                  
+              </select>#}
+             
+             {#  <div class="form-group">
+                     <input type="text" class="form-control"  data-provide="typeahead" >
+                </div>
+                <div class="input-group">
+                   
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Separated link</a></li>
+                    </ul>
+                  </div><!-- /btn-group -->
+                  <input type="text" class="form-control" disabled>
+                </div>
+              <button type="button" class="btn btn-primary" >{{'Submit'|trans}}</button>
+        </form>
+      </div> 
+    </div> #}
+          
 	<div class="row">
 				  <div class="col-xs-12 col-sm-12 col-md-12 ">
 				    <div class="thumbnail blockImageTexte">

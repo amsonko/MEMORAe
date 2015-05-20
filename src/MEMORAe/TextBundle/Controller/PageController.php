@@ -46,8 +46,10 @@ class PageController extends Controller
                 return $this->render("MEMORAeTextBundle:Page:video.html.twig", array('video' =>$media));
             case 5:
                 return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$media));
-             case 6:
+            case 6:
                 return $this->render("MEMORAeTextBundle:Page:these.html.twig", array('these' =>$media));
+            case 7:
+                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$media,'publication'=>true));
         }
                 
     }

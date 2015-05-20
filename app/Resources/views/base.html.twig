@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset=utf-8" />
-        <title>{% block title %}Memorae{% endblock %}</title>
+        <title>{% block title %}MEMORAe{% endblock %}</title>
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -14,14 +14,14 @@
             <link rel="stylesheet" href="{{asset('css/carousel.css')}}" />
             <link rel="stylesheet"href="{{asset('css/floatingSocialBar.css')}}" />
             <link rel="stylesheet" href="{{asset('css/sideBar.css')}}"/>
-
+             <link rel="stylesheet" href="{{asset('css/typeahead.min.css')}}"/>
         {% endblock %}
         {% block javascripts %}
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
             <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
              <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
             <script src="{{asset('JavaScript/plugins/jssor.slider.mini.js')}}"></script>
-            
+            <script src="{{asset('JavaScript/plugins/typeahead.js')}}"></script>
             <script src="{{asset('JavaScript/plugins/jquery.sidebar.js')}}"></script>
             <script src="{{asset('JavaScript/plugins/floatingSocialBar.js')}}"></script>
             <script src="{{asset('JavaScript/index.js')}}"></script>
@@ -30,15 +30,7 @@
     </head>
     <body>
 
-       <div id="corps">
-   		<div class="header">
-                    <div class="panelHeader">
-  			<div class="memoraeHeader">
-   
-				<ul class="nav nav-pills " role="tablist">
-					<li class="logo"><img  src="{{asset('images/memorae.png')}}" alt="logo memorae"></li>
-					<li  ><h1> Memorae</h1> </li>
-                                        <li  class="headerRight">
+         {#<li  class="headerRight">
 					 <div class="dropdown">
 					  <button class="btn btn-default dropdown-toggle" type="button" id="actionHeader" data-toggle="dropdown" aria-expanded="true">
 					    {{'other'|trans}}
@@ -54,12 +46,21 @@
 					    <li role="presentation"><a role="menuitem" tabindex="-2" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;{{'Sign in'|trans}}</a></li>
 					  </ul>
 					</div>
-					</li>		
-					
+					</li>	#}
+        
+       <div id="corps">
+   		<div class="header">
+                    <div class="panelHeader">
+  			<div class="memoraeHeader">
+   
+				<ul class="nav nav-pills " role="tablist">
+					<li class="logo"><img  src="{{asset('images/memorae.png')}}" alt="logo memorae"></li>
+					<li ><h1> MEMORAe</h1> </li>
                                         <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_cnrs.jpg')}}" alt="logo cnrs"></a></li>
                                         <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_Heudiasyc.jpg')}}" alt="logo Heudiasyc"></a></li>
                                         <li  class="headerRight"><a href="#"><img src="{{asset('images/logo_utc.png')}}" alt="logo UTC"></a></li>
 				</ul>
+                                <span class="label label-default">Default</span><span class="label label-primary">Default</span>
 		  	</div>
                     </div>
                     <div id="carousel" >
@@ -104,11 +105,11 @@
 				      <li role="presentation" class="dropdown rd" > 
                                             <a data-toggle="dropdown" href="#">{{'R&D'|trans}}<b class="caret"></b></a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="{{path('memorae_homepage',{'id':5})}}" >&nbsp;{{'Reasearch Projects'|trans}}</a></li>
+                                                <li><a href="{{path('memorae_homepage',{'id':5})}}" >&nbsp;{{'Reasearch Projects' |trans}}</a></li>
                                                 <li><a href="{{path('memorae_homepage',{'id':6})}}" >&nbsp;{{'Thesis'|trans}}</a></li>
                                             </ul>                  
-                                       </li>
-                                      <li><a href="{{path('memorae_homepage',{'id':7})}}" >{{'Publications'|trans}}</a> </li>         
+                                      </li>
+                                       <li class="publication"><a href="{{path('memorae_homepage',{'id':7})}}" >&nbsp;{{'Publications'|trans}}</a></li>
 				    </ul>
 				  </div>
 			</nav>
@@ -136,9 +137,9 @@
 		<div class="contactExterne">
 			<h5>{{'Find us on'|trans}} </h5>
                    <ul>
-                    <li><a href="#"><img src="{{asset('images/facebook.png')}}" alt="logo facebook">&nbsp;&nbsp;Facebook</a></li><br/>
                     <li><a href="#"><img src="{{asset('images/twitter.png')}}" alt="logo twitter">&nbsp;&nbsp;twitter</a></li><br/>
                     <li><a href="#"><img src="{{asset('images/blog.png')}}" alt="logo facebook">&nbsp;&nbsp;Mon blog</a></li><br/>
+                     <li role="presentation"><a role="menuitem" tabindex="-2" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;{{'Sign in'|trans}}</a></li>
                  </ul>
 		</div>
 	</div>
