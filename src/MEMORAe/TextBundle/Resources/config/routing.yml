@@ -1,10 +1,10 @@
 memorae_section:
     resource: "@MEMORAeTextBundle/Resources/config/routing/sectionentity.yml"
-    prefix:   /section
+    prefix:   /administrer/section
 
 memorae_media:
     resource: "@MEMORAeTextBundle/Resources/config/routing/mediaentity.yml"
-    prefix:   /media
+    prefix:   /administrer/media
 
 memorae_admin:
     resource: "@MEMORAeTextBundle/Resources/config/routing/adminPage.yml"
