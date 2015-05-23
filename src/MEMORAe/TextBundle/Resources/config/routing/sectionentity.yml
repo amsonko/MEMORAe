@@ -1,6 +1,12 @@
 section_new:
     path:     /{type}-{page}/new
     defaults: { _controller: "MEMORAeTextBundle:SectionEntity:new" }
+    
+section_new_avec_langue:
+    path:     /{type}-{page}/new/{_locale}
+    defaults: { _controller: "MEMORAeTextBundle:SectionEntity:new" }
+    requirements:
+        _locale: fr|en
 
 section_create:
     path:     /{type}-{page}/create

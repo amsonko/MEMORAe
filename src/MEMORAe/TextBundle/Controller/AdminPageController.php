@@ -4,48 +4,27 @@ namespace MEMORAe\TextBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
+use Symfony\Component\HttpFoundation\Request;
 /**
- * Description of AdminPageController
+ * Conttroller permettant de gérer l'écran d'accueil admin
  *
  * @author Amstrong
  */
 class AdminPageController extends Controller{
     
-    public function indexAction(){
+    public function indexAction(Request $request){
+        $language = $request->getLocale();
+        if($language != 'en' && $language != 'fr'){
+            $language = 'en';
+        }
         $em = $this->getDoctrine()->getManager();
-        $pages = $em->getRepository('MEMORAeTextBundle:PageEntity')->getAllPages();
+        $pages = $em->getRepository('MEMORAeTextBundle:PageEntity')->getAllPages($language);
         if (!$pages) {
-            throw $this->createNotFoundException('Unable to find any page');
+            throw $this->createNotFoundException('Unable to find any page in '.$language);
         }
         return $this->render('MEMORAeTextBundle:Admin:index.html.twig', array(
             'pages'      => $pages,
         ));
     }
         
-    private function adminHomeForm($pageId){
-        
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('MEMORAeTextBundle:MediaEntity')->findOneBy(array("page" => $pageId));
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find any media to edit');
-        }
-        $editForm = $this->get('media_service')->createEditForm($entity);
-        return $this->render('MEMORAeTextBundle:Admin:home.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-        ));
-    }
-    
-    private function adminWimForm($pageId){
-        $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('MEMORAeTextBundle:SectionEntity')->findSectionsByPage($pageId);
-        if (!$entities) {
-            throw $this->createNotFoundException('Unable to find any media to edit');
-        }
-        return $this->render('MEMORAeTextBundle:Admin:whatIsMemorae.html.twig', array(
-            'sections'      => $entities,
-        ));
-    }
-    
 }

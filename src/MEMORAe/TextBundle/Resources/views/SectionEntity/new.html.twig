@@ -1,9 +1,10 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript" src="/bundles/ivoryckeditor/ckeditor.js"></script>
-<script src="{{asset('JavaScript/adminWim.js')}}"></script>
+{#<script type="text/javascript" src="/bundles/ivoryckeditor/ckeditor.js"></script>#}
+{#<script src="{{asset('JavaScript/adminWim.js')}}"></script>#}
 {% block body -%}
 
-{#    {{ form_start(form) }}
+    {{form(form)}}
+  {#  {{ form_start(form) }}
 
     <div>
         {{ form_label(form.name, 'Titre de la section') }}
@@ -15,8 +16,11 @@
         {{form(media)}}
         
     {% endfor %}
-    {{ form_end(form) }}#}
-{{form_widget(form)}}
+    <div>
+    {{form_widget(form.submit)}}
+    </div>
+    {{ form_end(form) }}
+{#{{form_widget(form)}}#}
         <ul class="record_actions">
     <li>
         <a href="{{ path('accueil_admin') }}">

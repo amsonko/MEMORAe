@@ -7,49 +7,47 @@ namespace MEMORAe\TextBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use MEMORAe\TextBundle\Form\AdminHome;
+use Symfony\Component\HttpFoundation\Request;
 
 class PageController extends Controller
 {
-    public function indexAction($id)
+    public function indexAction(Request $request, $id)
     {
-        
+        $language = $request->getLocale();
+        if($language != 'en' && $language != 'fr'){
+            $language = 'en';
+        }
         if (!isset($id)||$id==0){
             $id=1;
         }    
        
-        return $this->buildPage($id);
+        return $this->buildPage($id, $language);
     }
     
     
-    public function buildPage($pageId) {
+    public function buildPage($pageId, $language) {
        
         
         $mediaRepository = $this->getDoctrine()->getEntityManager()->getRepository('MEMORAeTextBundle:MediaEntity');
         $sectionRepository = $this->getDoctrine()->getEntityManager()->getRepository('MEMORAeTextBundle:SectionEntity');
-     
-        $media =$mediaRepository->findBy(array("page" => $pageId));
         
-          
-//        if (!$media) {
-//            throw $this->createNotFoundException('Unable to find any text for page with the id '.$pageId);
-//        }
         switch($pageId)
         {
             case 1:
-                $text =$mediaRepository->findBy(array("page" => $pageId, "type"=>"text"));
+                $text =$mediaRepository->findOneBy(array("page" => $pageId, "type"=>"text", "language" => $language));
                 
                 if (!$text) {
-                    throw $this->createNotFoundException('Unable to find any text for homepage ');
+                    throw $this->createNotFoundException('Unable to find any text for homepage in '.$language);
                 }
-                $video =$mediaRepository->findOneBy(array("page" => $pageId, "type"=>"video"));
+                $video =$mediaRepository->findOneBy(array("page" => $pageId, "type"=>"video", "language"=>$language));
                 
                 if (!$video) {
-                    throw $this->createNotFoundException('Unable to find any video for page with the id '.$pageId);
+                    throw $this->createNotFoundException('Unable to find any video for homepage in '.$language);
                 }
                 return $this->render("MEMORAeTextBundle:Page:home.html.twig", array('text' =>$text, 'video'=>$video));
                 
             case 2:
-                $sections = $sectionRepository->findBy(array("page" => $pageId));
+                $sections = $sectionRepository->findSectionsByPage($pageId, $language, "video");
                 
                 if (!$sections) {
                     throw $this->createNotFoundException('Unable to find any section for the page what is memorae');
@@ -57,26 +55,44 @@ class PageController extends Controller
                 
                 return $this->render("MEMORAeTextBundle:Page:whatIsMemorae.html.twig", array('sections' =>$sections));
             
-                case 3:
+            case 3:
+                $media = $mediaRepository->findBy(array("page" => $pageId, "type" => "file", "language" => $language));
+                
+                if (!$media) {
+                    throw $this->createNotFoundException('Unable to find any files for documents page in '.$language);
+                }
                 return $this->render("MEMORAeTextBundle:Page:document.html.twig", array('doc' =>$media));
             case 4:
+                $media = $mediaRepository->findBy(array("page" => $pageId, "type" => "video", "language" => $language));
+                
+                if (!$media) {
+                    throw $this->createNotFoundException('Unable to find any videos for videos page in '.$language);
+                }
                 return $this->render("MEMORAeTextBundle:Page:video.html.twig", array('video' =>$media));
             case 5:
-                $sections = $sectionRepository->findBy(array("page" => $pageId));
+                $sections = $sectionRepository->findSectionsByPage($pageId, $language);
                 
                 if (!$sections) {
-                    throw $this->createNotFoundException('Unable to find any section for the page what is memorae');
+                    throw $this->createNotFoundException('Unable to find any section for the research page in '.$language);
                 }
                 return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$sections));
              case 6:
-                 $sections = $sectionRepository->findBy(array("page" => $pageId));
+                 $sections = $sectionRepository->findSectionsByPage($pageId, $language);
                 
                 if (!$sections) {
-                    throw $this->createNotFoundException('Unable to find any section for the page what is memorae');
+                    throw $this->createNotFoundException('Unable to find any section for the thesis page in '.$language);
                 }
                 return $this->render("MEMORAeTextBundle:Page:these.html.twig", array('theses' =>$sections));
             case 7:
-                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$media,'publication'=>true));
+                $sections = $sectionRepository->findSectionsByPage($pageId, $language);
+                
+                if (!$sections) {
+                    throw $this->createNotFoundException('Unable to find any section for the publications page in '.$language);
+                }
+                
+                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$sections,'publication'=>true));
+            default : 
+                throw $this->createNotFoundException('Unable too reach the page with the id '.$pageId);
         }
                 
     }

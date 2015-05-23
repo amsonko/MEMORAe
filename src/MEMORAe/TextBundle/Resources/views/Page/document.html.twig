@@ -5,22 +5,22 @@
      <script src="{{asset('JavaScript/document.js')}}"></script>
   {% endblock %}
 
-{%if medias is defined %}
- {% block Document %}
-   
-     <div class="row">
-        {% for contenu in doc %}
-            <div class="col-xs-4 col-sm-3 col-md-4">
-		<div class="thumbnail">
-                    <img src="{{asset('images/' ~ contenu.path)}}" alt="Generic placeholder thumbnail">
-                        <div class="caption">
-                            <h4>{{contenu.name}}</h4>
-                            <p>{{contenu.content}}</p>
-			</div>
-		</div>
-            </div>
-        {% endfor %}
-    </div>
-				 
- {% endblock %}
-  {%endif %}
+{%if doc is defined %}
+    {% block Document %}
+
+        <div class="row">
+            {% for contenu in doc %}
+                <div class="col-xs-4 col-sm-3 col-md-4">
+                    <div class="thumbnail">
+                        <img src="{{asset('images/' ~ contenu.path)}}" alt="Generic placeholder thumbnail">
+                            <div class="caption">
+                                <h4>{{contenu.name}}</h4>
+                                <p>{{contenu.content|raw}}</p>
+                            </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endblock %}
+{%endif %}

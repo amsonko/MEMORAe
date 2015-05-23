@@ -2,10 +2,9 @@ memor_ae_user:
     resource: "@MEMORAeUserBundle/Resources/config/routing.yml"
     prefix:   /
 
-memor_ae_text:
+memor_ae_page:
     resource: "@MEMORAeTextBundle/Resources/config/routing.yml"
-    prefix:   /
-
+    
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

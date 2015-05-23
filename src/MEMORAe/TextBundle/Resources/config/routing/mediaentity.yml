@@ -2,6 +2,12 @@ media_new:
     path:     /{type}-{page}/new
     defaults: { _controller: "MEMORAeTextBundle:MediaEntity:new" }
 
+media_new_avec_langue:
+    path:     /{type}-{page}/new/{_locale}
+    defaults: { _controller: "MEMORAeTextBundle:MediaEntity:new" }
+    requirements:
+        _locale: fr|en
+
 media_create:
     path:     /{type}-{page}/create
     defaults: { _controller: "MEMORAeTextBundle:MediaEntity:create" }
@@ -10,7 +16,7 @@ media_create:
 media_edit:
     path:     /{id}/edit
     defaults: { _controller: "MEMORAeTextBundle:MediaEntity:edit" }
-
+    
 media_update:
     path:     /{id}/update
     defaults: { _controller: "MEMORAeTextBundle:MediaEntity:update" }

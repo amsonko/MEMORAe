@@ -23,7 +23,7 @@ class SectionEntity {
     private $id;
     
     /**
-     * @ORM\Column(name="section_name", type="string", length=255)
+     * @ORM\Column(name="section_name", type="string", length=255, nullable=false)
      */
     private $name;
     
@@ -33,7 +33,7 @@ class SectionEntity {
     private $medias;
     
     /**
-     * @ORM\Column(name="section_language", type="string")
+     * @ORM\Column(name="section_language", type="string", nullable=false)
      */
     private $language;
     

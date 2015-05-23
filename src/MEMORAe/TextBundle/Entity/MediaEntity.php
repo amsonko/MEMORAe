@@ -237,6 +237,9 @@ class MediaEntity {
         return $this->section;
     }
     
+    public function getAbsoluteThumbnailPath(){
+        return null === $this->path ? null : __DIR__.'/../../../../web/images/'.$this->path;
+    }
     public function getAbsolutePath()
     {
         return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
