@@ -132,6 +132,105 @@
                 <target>voir plus</target>
             </trans-unit>
             
+            <trans-unit id="27">
+                <source>Name</source>
+                <target>Nom</target>
+            </trans-unit>
+            
+            <trans-unit id="28">
+                <source>Path</source>
+                <target>Chemin</target>
+            </trans-unit>
+            
+            <trans-unit id="29">
+                <source>Content</source>
+                <target>Contenu</target>
+            </trans-unit>
+            
+            <trans-unit id="30">
+                <source>Create a new section</source>
+                <target>Créer une nouvelle section</target>
+            </trans-unit>
+            
+            <trans-unit id="31">
+                <source>edit</source>
+                <target>éditer</target>
+            </trans-unit>
+            
+            <trans-unit id="32">
+                <source>Add a document</source>
+                <target>Ajouter un document</target>
+            </trans-unit>
+            
+            <trans-unit id="33">
+                <source>Summary</source>
+                <target>Résumé</target>
+            </trans-unit>
+            
+            <trans-unit id="34">
+                <source>Add a video</source>
+                <target>Ajouter une vidéo</target>
+            </trans-unit>
+            
+            <trans-unit id="35">
+                <source>Title</source>
+                <target>Titre</target>
+            </trans-unit>
+            
+            <trans-unit id="36">
+                <source>Add a project</source>
+                <target>Ajouter un projet</target>
+            </trans-unit>
+            
+            <trans-unit id="37">
+                <source>Add a thesis</source>
+                <target>Ajouter une thèse</target>
+            </trans-unit>
+            
+            <trans-unit id="38">
+                <source>Thesis category</source>
+                <target>Catégorie de thèse</target>
+            </trans-unit>
+            
+            <trans-unit id="39">
+                <source>Add a publication</source>
+                <target>Ajouter une publication</target>
+            </trans-unit>
+            
+            <trans-unit id="40">
+                <source>Publication type</source>
+                <target>Type de publication</target>
+            </trans-unit>
+            
+            <trans-unit id="41">
+                <source>Project category</source>
+                <target>Catégorie de projet</target>
+            </trans-unit>
+            
+            <trans-unit id="42">
+                <source>Create</source>
+                <target>Créer</target>
+            </trans-unit>
+            
+            <trans-unit id="43">
+                <source>Back</source>
+                <target>Retour</target>
+            </trans-unit>
+            
+            <trans-unit id="44">
+                <source>Delete</source>
+                <target>Effacer</target>
+            </trans-unit>
+            
+            <trans-unit id="45">
+                <source>Update</source>
+                <target>Mettre à jour</target>
+            </trans-unit>
+            
+            <trans-unit id="46">
+                <source>File</source>
+                <target>Fichier</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
