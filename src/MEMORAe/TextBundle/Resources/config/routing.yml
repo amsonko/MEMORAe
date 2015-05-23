@@ -10,10 +10,18 @@ memorae_admin:
     resource: "@MEMORAeTextBundle/Resources/config/routing/adminPage.yml"
     prefix: /administrer
     
+    
 memorae_homepage:
-    pattern: /{id}
-    defaults: { _controller: MEMORAeTextBundle:Page:index,id:1}
+    path: /{id}
+    defaults: { _controller: MEMORAeTextBundle:Page:index, id: 1}
     requirements:
         _method:  GET
         id: \d*
         
+memorae_homepage_avec_langue:
+    path: /{_locale}/{id}
+    defaults: { _controller: MEMORAeTextBundle:Page:index, id: 1}
+    requirements:
+        _method:  GET
+        id: \d*
+        _locale: fr|en

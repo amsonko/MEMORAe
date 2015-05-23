@@ -11,9 +11,11 @@ class MediaEntityType extends AbstractType
 {
     private $type;
     private $pageId;
-    public function __construct($type, $pageId){
+    private $language;
+    public function __construct($type, $pageId, $language = null){
         $this->type = $type;
         $this->pageId = $pageId;
+        $this->language = $language;
     }
     /**
      * @param FormBuilderInterface $builder
@@ -41,8 +43,9 @@ class MediaEntityType extends AbstractType
                 'property' => 'name',
                 'query_builder' => function(EntityRepository $er) {
                     return $er->createQueryBuilder('s')
-                        ->where('s.page = :id')
+                        ->where('s.page = :id and s.language = :language')
                         ->setParameter('id', $this->pageId)
+                        ->setParameter('language', $this->language)
                         ->orderBy('s.id', 'ASC');
                 },
             ));

@@ -28,10 +28,13 @@ class SectionEntityController extends Controller
      */
     public function createAction(Request $request, $type, $page)
     {
+        $language = $request->getLocale();
+        if($language != 'en' && $language != 'fr'){
+            $language = 'en';
+        }
         $entity = new SectionEntity();
         $form = $this->createCreateForm($entity, $type, $page);
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $pageEntity = $em->getRepository('MEMORAeTextBundle:PageEntity')->find($page);
@@ -39,12 +42,18 @@ class SectionEntityController extends Controller
                 throw $this->createNotFoundException('Unable to find any PageEntity of id '.$page);
             }
             $entity->setPage($pageEntity);
+            $entity->setLanguage($language);
+            
+            foreach ($entity->getMedias() as $media){
+                $media->setSection($entity);
+                $media->setType($type);
+                $em->persist($media);
+            }
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('accueil_admin'));
+            return $this->redirect($this->generateUrl('accueil_admin', array('_locale' => $language)));
         }
-
         return $this->render('MEMORAeTextBundle:SectionEntity:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
@@ -60,6 +69,7 @@ class SectionEntityController extends Controller
      */
     private function createCreateForm(SectionEntity $entity, $type, $pageId)
     {
+        $entity->addMedia(new MediaEntity()); 
         $form = $this->createForm(new SectionEntityType($type, $pageId), $entity, array(
             'action' => $this->generateUrl('section_create', array('type' => $type, 'page' =>$pageId)),
             'method' => 'POST',

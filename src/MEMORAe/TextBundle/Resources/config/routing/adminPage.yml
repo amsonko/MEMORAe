@@ -1,3 +1,5 @@
 accueil_admin:
-    path:     /
+    path:     /{_locale}
     defaults: { _controller: "MEMORAeTextBundle:AdminPage:index" }
+    requirements:
+        _locale: fr|en

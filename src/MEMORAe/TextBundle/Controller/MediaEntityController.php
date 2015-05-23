@@ -22,11 +22,16 @@ class MediaEntityController extends Controller
      */
     public function createAction(Request $request, $type, $page)
     {
+        $language = $request->getLocale();
+        if($language != 'en' && $language != 'fr'){
+            $language = 'en';
+        }
         $entity = new MediaEntity();
-        $form = $this->createCreateForm($entity, $type, $page);
+        $form = $this->createCreateForm($entity, $type, $page, $language);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            
             $em = $this->getDoctrine()->getManager();
             $pageEntity = $em->getRepository('MEMORAeTextBundle:PageEntity')->find($page);
             if(!$pageEntity){
@@ -34,6 +39,7 @@ class MediaEntityController extends Controller
             }
             if(!$entity->getSection()){
                 $entity->setPage($pageEntity);
+                $entity->setLanguage($language);
             }
             
             if($type == 'file'){
@@ -43,7 +49,7 @@ class MediaEntityController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('accueil_admin'));
+            return $this->redirect($this->generateUrl('accueil_admin', array('_locale' => $language)));
         }
 
         return $this->render('MEMORAeTextBundle:MediaEntity:new.html.twig', array(
@@ -59,9 +65,9 @@ class MediaEntityController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(MediaEntity $entity, $type, $page)
+    private function createCreateForm(MediaEntity $entity, $type, $page, $language)
     {
-        $form = $this->createForm(new MediaEntityType($type, $page), $entity, array(
+        $form = $this->createForm(new MediaEntityType($type, $page, $language), $entity, array(
             'action' => $this->generateUrl('media_create', array('type' => $type, 'page' => $page)),
             'method' => 'POST',
         ));
@@ -75,10 +81,14 @@ class MediaEntityController extends Controller
      * Displays a form to create a new MediaEntity entity.
      *
      */
-    public function newAction($type, $page)
+    public function newAction(Request $request, $type, $page)
     {
+        $language = $request->getLocale();
+        if($language != 'en' && $language != 'fr'){
+            $language = 'en';
+        }
         $entity = new MediaEntity();
-        $form = $this->createCreateForm($entity, $type, $page);
+        $form = $this->createCreateForm($entity, $type, $page, $language);
 
         return $this->render('MEMORAeTextBundle:MediaEntity:new.html.twig', array(
             'entity' => $entity,
@@ -90,7 +100,7 @@ class MediaEntityController extends Controller
      * Displays a form to edit an existing MediaEntity entity.
      *
      */
-    public function editAction($id)
+    public function editAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -117,10 +127,19 @@ class MediaEntityController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    public function createEditForm(MediaEntity $entity)
+    private function createEditForm(MediaEntity $entity)
     {
-        $page = $entity->getPage()?$entity->getPage()->getId():$entity->getSection()->getPage()->getId();
-        $form = $this->createForm(new MediaEntityType($entity->getType(), $page), $entity, array(
+        $language = null;
+        if($entity->getPage() != null){
+            //Le media ne se trouve pas dans une section (exemple page d'accueil)
+            $page = $entity->getPage()->getId();
+        }else{
+            //Le media se trouve dans une section (exemple de la page de recherche)
+            $page = $entity->getSection()->getPage()->getId();
+            $language = $entity->getSection()->getLanguage();
+        }
+         
+        $form = $this->createForm(new MediaEntityType($entity->getType(), $page, $language), $entity, array(
             'action' => $this->generateUrl('media_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
@@ -176,8 +195,17 @@ class MediaEntityController extends Controller
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find MediaEntity entity.');
             }
-
+            
+            if($entity->getType() == 'file' && $entity->getPath() != null){
+                if(!unlink($entity->getAbsolutePath())){
+                    throw $this->createAccessDeniedException('Impossible de supprimer le fichier '.$entity->getPath());
+                }
+                if(!unlink($entity->getAbsoluteThumbnailPath())){
+                    throw $this->createAccessDeniedException('Impossible de supprimer le fichier '.$entity->getPath());
+                }
+            }
             $em->remove($entity);
+            
             $em->flush();
         }
 

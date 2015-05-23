@@ -90,6 +90,6 @@ COMMIT;
 
 alter sequence media_pk_seq restart with 30;
 
-
+alter sequence section_pk_seq restart with 20;
 
 
