@@ -17,11 +17,11 @@
                 <artical class="ac-panel">
                     <header class="ac-header ui-helper-reset ui-state-default">{{section.name}}</header>
                     <section class="ac-content ui-helper-reset ui-widget-content">
-                        <div class="row">
+                        <div class="row accordionContent">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="thumbnail blockVideo">
                                     {%for media in section.medias %}
-                                        <iframe src="{{media.path}}"></iframe>
+                                        <iframe class="pull-left" src="{{media.path}}"></iframe>
                                          <div class="caption">
                                              <h4>{{media.name|raw}}</h4>
                                              <p>{{media.content|raw}}</p>

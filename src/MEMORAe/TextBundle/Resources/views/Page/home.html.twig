@@ -13,17 +13,19 @@
                    </p>
             {% endfor %} 
            </div>
-            <div>
-                <a href="" class="moreText">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+         {#  <a href="" class="moreText">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-plus"></span></a>#}
+            {#<div >
+                
+                <button class="moreText btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
 				   	 
-            </div>
+            </div>#}
         
  {% endblock %}
  {% endif %}
  {%if video is defined %}
  {% block VideoSection %} 
      
-         <div class="row" id=""videos">
+         <div class="row" id="videos">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="thumbnail">
                     <iframe  src="{{video.path}}" ></iframe>
@@ -31,7 +33,7 @@
                     <h4>{{video.name}}</h4>
                     <p>{{video.content|raw}}</p>
                     <p>
-                        <a href="{{path('memorae_homepage',{'id':4})}}">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-link"></span></a>
+                        <a href="{{path('memorae_homepage',{'id':4})}}">{{'more video'|trans}} &nbsp;<span class="glyphicon glyphicon-plus-sign"></span></a>
                     </p>
 
                 </div>

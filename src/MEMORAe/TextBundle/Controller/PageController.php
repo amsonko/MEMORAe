@@ -76,7 +76,12 @@ class PageController extends Controller
                 }
                 return $this->render("MEMORAeTextBundle:Page:these.html.twig", array('theses' =>$sections));
             case 7:
-                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$media,'publication'=>true));
+                 $sections = $sectionRepository->findBy(array("page" => $pageId));
+               // echo "taille  pour cette section ".count($sections);
+                if (!$sections) {
+                    throw $this->createNotFoundException('Unable to find any section for the page what is memorae');
+                }
+                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$sections,'publication'=>true));
         }
                 
     }
