@@ -34,6 +34,7 @@ class PageController extends Controller
         switch($pageId)
         {
             case 1:
+           
                 $text =$mediaRepository->findOneBy(array("page" => $pageId, "type"=>"text", "language" => $language));
                 
                 if (!$text) {
@@ -84,16 +85,15 @@ class PageController extends Controller
                 }
                 return $this->render("MEMORAeTextBundle:Page:these.html.twig", array('theses' =>$sections));
             case 7:
-                $sections = $sectionRepository->findSectionsByPage($pageId, $language);
-                
+                 $sections = $sectionRepository->findBy(array("page" => $pageId));
+               // echo "taille  pour cette section ".count($sections);
                 if (!$sections) {
-                    throw $this->createNotFoundException('Unable to find any section for the publications page in '.$language);
+                    throw $this->createNotFoundException('Unable to find any section for the page what is memorae');
                 }
-                
                 return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$sections,'publication'=>true));
             default : 
                 throw $this->createNotFoundException('Unable too reach the page with the id '.$pageId);
         }
-                
+              
     }
 }

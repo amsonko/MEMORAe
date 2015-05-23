@@ -79,6 +79,7 @@ var helpFunction={
             helpFunction.pluginSideBar();
             helpFunction.pluginSlider();
             helpFunction.pluginResizeVideos();
+           // helpFunction.choixLangue();
         },
         gestionActiveMenu:function($objet,$bind,parentClass){
             $("."+parentClass).find(".active").each(function(){
@@ -110,8 +111,73 @@ var helpFunction={
 
                   cb(matches);
                 };
-        }
+        },
+        choixLangue:function(){
+         
+            $('.langue').find('img').each(function(cle,element){
+               
+                var $this=$(element);
+               
+              $this.on("click",function(e){
+                // var $img=$("this");
+              //  alert("ok");
+                    e.preventDefault();
+               $(".langueActive").removeClass("langueActive");
+               
+               $(this).addClass("langueActive");
+              });  
+            });
+        },
+           
+        expandAndCollapse:function ($parent,nbPToDisplay){
+        
+         var $paragraph=$parent.find("p");  
+      
+    
+            if ($paragraph.length > nbPToDisplay){
 
+                // hide paragraph > nbPToDisplay
+                $paragraph.each(function(cle,element){
+                       if (cle > nbPToDisplay){
+                           var $this=$(element);
+                            $this.hide();
+                           }
+                });
+        
+            // creation du button et ajout 
+         var $divButton=$('<div >\
+                <button class="moreText btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>\
+            </div>');
+        $parent.append($divButton);  
+    
+     
+          var a=false;
+        $divButton.find("button").on("click",function(e){
+             e.preventDefault();
+            var $moreText=$(this);
+            a=a? false:true;
+
+            $paragraph.each(function(cle,element){
+                if (cle >nbPToDisplay){
+                    var $this=$(element);
+                     $this.slideToggle("400","linear",function(){
+
+                        if (a){
+                            $moreText.html('<span class="glyphicon glyphicon-minus"></span>');
+
+                        }
+                        else{
+                             $moreText.html('<span class="glyphicon glyphicon-plus"></span>');
+
+                        }
+
+
+                     });
+                }
+            });   
+         });
+      }
+    }
 };
 
      

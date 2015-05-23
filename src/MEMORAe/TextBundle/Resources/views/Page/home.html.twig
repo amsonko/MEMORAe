@@ -6,13 +6,11 @@
 
 {%if text is defined %}
 {% block InfoSection %} 
-    <div class="acceuilTextContent" id="acceuilTextContent">
-        {{text.content|raw }}
-    </div>
-    <div>
-        <a href="" class="moreText">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
-				   	 
-    </div>
+           <div class="acceuilTextContent" id="acceuilTextContent"> 
+        
+                    {{text.content|raw }}
+                  
+           </div>
         
  {% endblock %}
  {% endif %}
@@ -27,7 +25,7 @@
                     <h4>{{video.name}}</h4>
                     <p>{{video.content|raw}}</p>
                     <p>
-                        <a href="{{path('memorae_homepage',{'id':4})}}">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-link"></span></a>
+                        <a href="{{path('memorae_homepage',{'id':4})}}">{{'more video'|trans}} &nbsp;<span class="glyphicon glyphicon-plus-sign"></span></a>
                     </p>
 
                 </div>

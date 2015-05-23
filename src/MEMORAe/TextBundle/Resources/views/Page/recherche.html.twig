@@ -2,14 +2,18 @@
  
 {% block javascripts %}
      {{ parent()}}
+     {% if publication is defined %}
+     <script src="{{asset('JavaScript/publication.js')}}"></script>
+     {% else %}
      <script src="{{asset('JavaScript/recherche.js')}}"></script>
+     {% endif %}
 {% endblock %}
-
-{% if recherche is defined %}
-    {% block Recherche %}
-        <div class="row">
+{#{% set blockName =  publication is defined ? 'Publication': 'Recherche' %}#}
+     {% if publication is defined %}
+        {% block  Publication %}
+        
+	<div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 ">
-
                 {% for section in recherche %}
                     {% for projet in section.medias %}
                         <div class="thumbnail blockImageTexte">
@@ -22,8 +26,29 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
+                                      
             </div>   
-        </div>      
+        </div> 
 
-    {% endblock %}
-{% endif %}
+      {% endblock %}
+      {% else %}
+          {% block  Recherche %}
+              <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 ">
+                {% for section in recherche %}
+                    {% for projet in section.medias %}
+                        <div class="thumbnail blockImageTexte">
+                            <img src="{{asset('images/'~projet.path)}}" class=" pull-left img-rounded"
+                             alt="Generic placeholder thumbnail">
+                            <div class="caption">
+                                <h4>{{projet.name}}</h4>
+                                <p>{{projet.content|raw}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                                      
+            </div>   
+        </div> 
+        {% endblock %}
+     {% endif %} 
