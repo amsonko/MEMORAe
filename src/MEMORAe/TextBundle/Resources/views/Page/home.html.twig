@@ -7,18 +7,10 @@
 {%if text is defined %}
 {% block InfoSection %} 
            <div class="acceuilTextContent" id="acceuilTextContent"> 
-            {% for contenu in text %} 
-                <p>
-                    {{contenu.content|raw }}
-                   </p>
-            {% endfor %} 
+        
+                    {{text.content|raw }}
+                  
            </div>
-         {#  <a href="" class="moreText">{{'see more'|trans}} &nbsp;<span class="glyphicon glyphicon-plus"></span></a>#}
-            {#<div >
-                
-                <button class="moreText btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
-				   	 
-            </div>#}
         
  {% endblock %}
  {% endif %}

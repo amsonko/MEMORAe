@@ -5,7 +5,9 @@ $(document).ready(function(){
       
      
 //      var $text=$("#acceuil").find(".acceuilTextContent");
-      helpFunction.expandAndCollapse('acceuilTextContent',2);
+
+    var $text=$(".acceuilTextContent");
+      helpFunction.expandAndCollapse($text,1);
    
 });
 

@@ -129,8 +129,8 @@ var helpFunction={
             });
         },
            
-        expandAndCollapse:function (classParent,nbPToDisplay){
-         var  $parent=$('.'+classParent);
+        expandAndCollapse:function ($parent,nbPToDisplay){
+        
          var $paragraph=$parent.find("p");  
       
     

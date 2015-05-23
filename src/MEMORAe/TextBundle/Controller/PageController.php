@@ -34,6 +34,7 @@ class PageController extends Controller
         switch($pageId)
         {
             case 1:
+           
                 $text =$mediaRepository->findOneBy(array("page" => $pageId, "type"=>"text", "language" => $language));
                 
                 if (!$text) {

@@ -227,7 +227,7 @@ text-align: justify
  }
   .thumbnail {
     display: block;
-    max-width:94% !important;
+    max-width:100%;
     margin-left: 3%;
     margin-top: 1%;
     max-height:96% ;
@@ -270,9 +270,11 @@ text-align: justify
 .blockImageTexte {
     height: 200px !important;
     margin: 1em;
-    overflow: hidden !important;
-     padding:1px !important ;
-     width:100% ;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 2px !important;
+    width: 100% !important;
+    margin-left: 0px !important;
 }
 .blockImageTexte img{
     height:90% !important;
