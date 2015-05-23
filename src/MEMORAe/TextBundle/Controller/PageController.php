@@ -90,7 +90,9 @@ class PageController extends Controller
                     throw $this->createNotFoundException('Unable to find any section for the page what is memorae');
                 }
                 return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$sections,'publication'=>true));
+            default : 
+                throw $this->createNotFoundException('Unable too reach the page with the id '.$pageId);
         }
-                
+              
     }
 }
