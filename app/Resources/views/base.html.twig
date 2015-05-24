@@ -41,7 +41,7 @@
 				<ul class="nav nav-pills " role="tablist">
 					<li class="logo"><img  src="{{asset('images/memorae.png')}}" alt="logo memorae"></li>
                                         <li class="langue"> 
-                                            <a  href="#" >
+                                            <a  href="{{ path('memorae_homepage_avec_langue', {'_locale': 'fr'})}}" >
                                                 {% if app.request.locale=='fr' %}
                                                 <img class="langueActive" src="{{asset('images/fr.png')}}" alt="logo fr">
                                                 {% else %}
@@ -51,8 +51,8 @@
                                         </li>
                                                 
                                         <li class="langue"> 
-                                            <a  href="#" >
-                                                {% if app.request.locale=='gb' %}
+                                            <a  href="{{ path('memorae_homepage_avec_langue', {'_locale': 'en'})}}" >
+                                                {% if app.request.locale != 'fr' %}
                                                 <img class="langueActive" src="{{asset('images/fr.png')}}" alt="logo fr">
                                                 {% else %}
                                                      <img  src="{{asset('images/gb.png')}}" alt="logo gb">
@@ -151,7 +151,7 @@
                    <ul>
                     <li><a href="#"><img src="{{asset('images/twitter.png')}}" alt="logo twitter">&nbsp;&nbsp;twitter</a></li><br/>
                     <li><a href="#"><img src="{{asset('images/blog.png')}}" alt="logo facebook">&nbsp;&nbsp;Mon blog</a></li><br/>
-                     <li role="presentation"><a role="menuitem" tabindex="-2" href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;{{'Sign in'|trans}}</a></li>
+                     <li role="presentation"><a role="menuitem" tabindex="-2" href="{{ path('accueil_admin') }}"><span class="glyphicon glyphicon-cog"></span>&nbsp;{{'Sign in'|trans}}</a></li>
                  </ul>
 		</div>
 	</div>

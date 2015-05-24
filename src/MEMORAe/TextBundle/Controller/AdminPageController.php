@@ -22,13 +22,13 @@ class AdminPageController extends Controller{
         if (!$pages) {
             throw $this->createNotFoundException('Unable to find any page in '.$language);
         }
-//        return $this->render('MEMORAeTextBundle:Admin:index.html.twig', array(
-//            'pages'      => $pages,
-//        ));
-        
-        return $this->render('MEMORAeTextBundle:Admin:banniere.html.twig', array(
+        return $this->render('MEMORAeTextBundle:Admin:index.html.twig', array(
             'pages'      => $pages,
         ));
+        
+//        return $this->render('MEMORAeTextBundle:Admin:banniere.html.twig', array(
+//            'pages'      => $pages,
+//        ));
     }
         
 }

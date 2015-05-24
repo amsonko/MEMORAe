@@ -16,7 +16,7 @@
         <br/>
         <div id="infoError"></div>
         <br/> <br/> 
-        
+     
      <div class="panel panel-default pageBlock">
 	<div class="panel-heading">
            <h1 class="panel-title" >{{'Home'|trans}}</h1>
@@ -25,7 +25,7 @@
     <div class="panel-body">    
         
         <table class="table  table-bordered " >
-            {%if pages.home!=null %}
+            {%if pages.home != null %}
                 <thead>
                     <tr>
                         <th data-field="Numero">{{'Number'|trans}}</th>
@@ -64,7 +64,7 @@
     <div class="panel-body">    
         
         <table class="table  table-bordered " link="section/video-2/new" >
-             {% if pages.wim != null %}
+             
             <thead>
                 <tr>
                         <th data-field="Numero">{{'Number'|trans}}</th>
@@ -74,6 +74,7 @@
                         <th data-field="cle" class="cle">cle</th>
                 </tr>
                 </thead>
+                {% if pages.wim != null %}
                     <tbody>
                           {% for section in pages.wim %}
                             <tr>
@@ -102,7 +103,7 @@
     <div class="panel-body">    
         
         <table class="table  table-bordered " link="media/file-3/new">
-             {% if pages.doc != null %}
+             
             <thead>
                 <tr>
                         <th data-field="Numero">{{'Number'|trans}}</th>
@@ -114,6 +115,7 @@
                         <th data-field="cle" class="cle">cle</th>
                 </tr>
                 </thead>
+                {% if pages.doc != null %}
                     <tbody>
                            {% for media in pages.doc %}
                             <tr>
@@ -143,7 +145,7 @@
     <div class="panel-body">    
         
         <table class="table  table-bordered " link="media/video-4/new">
-             {% if pages.video != null %}
+             
             <thead>
                 <tr>
                         <th data-field="Numero">{{'Number'|trans}}</th>
@@ -155,6 +157,7 @@
                         <th data-field="cle" class="cle">cle</th>
                 </tr>
                 </thead>
+                {% if pages.video != null %}
                     <tbody>
                            {% for media in pages.video %}
                             <tr>
@@ -184,7 +187,7 @@
     <div class="panel-body">    
         
         <table class="table  table-bordered " link="media/file-5/new">
-            {% if pages.projets != null and pages.projets.sections != null %}
+            
              <thead>
                 <tr>
                         <th data-field="Numero">{{'Number'|trans}}</th>
@@ -196,6 +199,7 @@
                         <th data-field="cle" class="cle">cle</th>
                 </tr>
                 </thead>
+                {% if pages.projets != null and pages.projets.sections != null %}
                     <tbody>
                               {% for section in pages.projets.sections %}
                              {%for media in section.medias%}
@@ -231,7 +235,7 @@
     <div class="panel-body">    
         
         <table class="table  table-bordered " link="media/file-6/new">
-            {% if pages.theses != null and pages.theses.sections != null %}
+            
         <thead>
             <tr>
                         <th data-field="Numero">{{'Number'|trans}}</th>
@@ -243,6 +247,7 @@
                         <th data-field="cle" class="cle">cle</th>
                 </tr>
                 </thead>
+                {% if pages.theses != null and pages.theses.sections != null %}
                     <tbody>
                                 {% for section in pages.theses.sections %}
                              {%for media in section.medias%}
@@ -280,7 +285,7 @@
     <div class="panel-body">    
         
         <table class="table  table-bordered " link="media/file-7/new">
-            {% if pages.publications != null and pages.publications.sections != null %}
+            
              <thead>
                 <tr>
                         <th data-field="Numero">{{'Number'|trans}}</th>
@@ -292,6 +297,7 @@
                         <th data-field="cle" class="cle">cle</th>
                 </tr>
                 </thead>
+                {% if pages.publications != null and pages.publications.sections != null %}
                     <tbody>
                              {% for section in pages.publications.sections %}
                                  {%for media in section.medias%}
@@ -316,5 +322,41 @@
     </div> 
    </div>       
     
+            
+            {#Gestion de la bannière défilante#}
+        
+             <div class="panel panel-default pageBlock">
+	<div class="panel-heading">
+           <h1 class="panel-title" >{{'Banner'|trans}}</h1>
+           
+        </div>
+    <div class="panel-body">    
+        
+        <table class="table  table-bordered " link="media/img-100/new">
+            {%if pages.banniere != null %}
+                <thead>
+                    <tr>
+                        <th data-field="Numero">{{'Number'|trans}}</th>
+                        <th>{{'Name'|trans}}</th>
+                        <th class="cle">cle</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        {% for media in pages.banniere %}
+                            <tr>
+                                {% if media is defined and media != null %}
+                                    <td>{{loop.index}}</td>
+                                    <td class="redText">{{media.name}}</td>
+                                     <td class="cle" typeBlock="media">{{ media.id}}</td>
+                                   
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                {%endif %}
+            </table>
+    </div> 
+   </div>
     {% endblock %}
     {% endblock %}

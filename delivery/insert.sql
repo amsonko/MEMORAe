@@ -33,10 +33,10 @@ INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES
 --Insertion des images de la bannierer défilante
 
 INSERT INTO Page (page_id, page_name) VALUES(100,'Banniere');
-INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(40, 'Image Carousel', 'img', 100, '01.jpg');
-INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(41, 'Image Carousel', 'img', 100, '02.jpg');
-INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(42, 'Image Carousel', 'img', 100, '03.jpg');
-INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(43, 'Image Carousel', 'img', 100, '04.jpg');
+INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(40, 'Image Carousel', 'img', 100, 'carousel/01.jpg');
+INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(41, 'Image Carousel', 'img', 100, 'carousel/02.jpg');
+INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(42, 'Image Carousel', 'img', 100, 'carousel/03.jpg');
+INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(43, 'Image Carousel', 'img', 100, 'carousel/04.jpg');
 
 
 --Insertion dans la page d'accueil

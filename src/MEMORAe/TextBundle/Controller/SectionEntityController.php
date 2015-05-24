@@ -116,12 +116,10 @@ class SectionEntityController extends Controller
         }
 
         $editForm = $this->createEditForm($section, $media);
-        $deleteForm = $this->createDeleteForm($media->getId());
 
         return $this->render('MEMORAeTextBundle:SectionEntity:edit.html.twig', array(
             'entity'      => $section,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -160,8 +158,6 @@ class SectionEntityController extends Controller
         if (!$section) {
             throw $this->createNotFoundException('Unable to find SectionEntity entity.');
         }
-        
-        $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($section, $media);
         $editForm->handleRequest($request);
 
@@ -174,49 +170,30 @@ class SectionEntityController extends Controller
         return $this->render('MEMORAeTextBundle:SectionEntity:edit.html.twig', array(
             'entity'      => $section,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
      * Deletes a SectionEntity entity.
      *
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $media = $em->getRepository('MEMORAeTextBundle:MediaEntity')->find($id);
-
-            if (!$media) {
-                throw $this->createNotFoundException('Unable to find MediaEntity entity.');
-            }
-
-            $section = $em->getRepository('MEMORAeTextBundle:SectionEntity')->find($media->getSection());
-            $em->remove($media);
-            $em->remove($section);
-            $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $section = $em->getRepository('MEMORAeTextBundle:SectionEntity')->find($id);
+        if (!$section) {
+            throw $this->createNotFoundException('Unable to find Section entity.');
         }
+        
+        $medias = $em->getRepository('MEMORAeTextBundle:MediaEntity')->findBy(array("section" => $id));
+        
+        foreach ($medias as $media) {
+            $em->remove($media);
+        }
+        
+        $em->remove($section);
+        $em->flush();
 
         return $this->redirect($this->generateUrl('accueil_admin'));
     }
 
-    /**
-     * Creates a form to delete a SectionEntity entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('section_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
-    }
 }

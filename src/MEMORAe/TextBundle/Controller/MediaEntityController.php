@@ -111,12 +111,10 @@ class MediaEntityController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('MEMORAeTextBundle:MediaEntity:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -159,8 +157,6 @@ class MediaEntityController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find MediaEntity entity.');
         }
-        
-        $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -176,42 +172,15 @@ class MediaEntityController extends Controller
         return $this->render('MEMORAeTextBundle:MediaEntity:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
-    /**
-     * Deletes a MediaEntity entity.
-     *
-     */
-//    public function deleteAction(Request $request, $id)
-//    {
-//        $form = $this->createDeleteForm($id);
-//        $form->handleRequest($request);
-//
-//        if ($form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $entity = $em->getRepository('MEMORAeTextBundle:MediaEntity')->find($id);
-//
-//            if (!$entity) {
-//                throw $this->createNotFoundException('Unable to find MediaEntity entity.');
-//            }
-//            
-//            if(($entity->getType() == 'file' || $entity->getType() == 'img')&& $entity->getPath() != null){
-//                if($entity->getType() == 'file' && !unlink($entity->getAbsolutePath())){
-//                    throw $this->createAccessDeniedException('Impossible de supprimer le fichier '.$entity->getPath());
-//                }
-//                if($entity->getType() == 'img' && !unlink($entity->getAbsoluteImgPath())){
-//                    throw $this->createAccessDeniedException("Impossible de supprimer l'image ".$entity->getPath());
-//                }
-//            }
-//            $em->remove($entity);
-//            
-//            $em->flush();
-//        }
-//
-//        return $this->redirect($this->generateUrl('accueil_admin'));
-//    }
 
+    /**
+     * Deletes a media entity
+     * @param type $id id of the media to delete
+     * @return type
+     * @throws type
+     */
     
     public function deleteAction($id){
         $em = $this->getDoctrine()->getManager();
@@ -232,21 +201,5 @@ class MediaEntityController extends Controller
 
         $em->flush();
         return $this->redirect($this->generateUrl('accueil_admin'));
-    }
-    /**
-     * Creates a form to delete a MediaEntity entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('media_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
     }
 }

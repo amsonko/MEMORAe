@@ -25,4 +25,4 @@ section_update:
 section_delete:
     path:     /{id}/delete
     defaults: { _controller: "MEMORAeTextBundle:SectionEntity:delete" }
-    methods:  [POST, DELETE]
+    methods:  [POST, DELETE, GET]
