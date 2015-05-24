@@ -28,6 +28,17 @@ INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES
 INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(16, 'Trace d''interaction', 'fr', 2);
 INSERT INTO Section (section_id, section_name, section_language, page_id) VALUES(17, 'Réseau social d''entreprise', 'fr', 2);
 
+
+
+--Insertion des images de la bannierer défilante
+
+INSERT INTO Page (page_id, page_name) VALUES(100,'Banniere');
+INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(40, 'Image Carousel', 'img', 100, '01.jpg');
+INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(41, 'Image Carousel', 'img', 100, '02.jpg');
+INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(42, 'Image Carousel', 'img', 100, '03.jpg');
+INSERT INTO Media (media_id, media_name, media_type, page_id, media_path) VALUES(43, 'Image Carousel', 'img', 100, '04.jpg');
+
+
 --Insertion dans la page d'accueil
 
 INSERT INTO Media (media_id, media_language, media_type, page_id, media_content) VALUES(1, 'fr', 'text', 1,
@@ -88,7 +99,7 @@ INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, 
 COMMIT;
 
 
-alter sequence media_pk_seq restart with 30;
+alter sequence media_pk_seq restart with 50;
 
 alter sequence section_pk_seq restart with 20;
 

@@ -237,8 +237,8 @@ class MediaEntity {
         return $this->section;
     }
     
-    public function getAbsoluteThumbnailPath(){
-        return null === $this->path ? null : __DIR__.'/../../../../web/images/'.$this->path;
+    public function getAbsoluteImgPath(){
+        return null === $this->path ? null : $this->getImgRootDir().'/'.$this->path;
     }
     public function getAbsolutePath()
     {
@@ -263,6 +263,9 @@ class MediaEntity {
         return 'uploads/documents';
     }
     
+    protected function getImgRootDir(){
+        return __DIR__.'/../../../../web/images';
+    }
     /**
      * Dans le cas des fichiers, on met dans path le chemin vers le fichier
      * @return type
@@ -278,7 +281,13 @@ class MediaEntity {
         }
         
         $fileName = rand(1, 99999).'.'.$extension;
-        $this->file->move($this->getUploadRootDir(), $fileName);
+        if($this->getType() == 'file'){
+            $this->file->move($this->getUploadRootDir(), $fileName);
+            $this->path = $fileName;
+        }else{
+            $this->file->move($this->getImgRootDir().'/carousel', $fileName);
+            $this->path = 'carousel/'.$fileName;
+        }
         
         //Créons le miniature
 //        $imagick = new \Imagick();
@@ -289,7 +298,6 @@ class MediaEntity {
 //            echo'pas bien passé';die();
 //        }
 //        $imagick->writeImage('output.jpg');
-        $this->path = $fileName;
         $this->file = null;
     }
 }

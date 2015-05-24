@@ -25,7 +25,8 @@ class PageEntityRepository extends EntityRepository
             "video" => $mediaRepository->findBy(array("page" => 4, "language" => $language, "type" => "video")),
             "projets" => $this->getPageById(5, $language),
             "theses" => $this->getPageById(6, $language),
-            "publications" => $this->getPageById(7, $language));
+            "publications" => $this->getPageById(7, $language),
+            "banniere" => $mediaRepository->findBy(array("page" => 100, "type" => "img")));
         return $pages;
     }
     

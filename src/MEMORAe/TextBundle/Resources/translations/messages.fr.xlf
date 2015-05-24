@@ -231,6 +231,16 @@
                 <source>File</source>
                 <target>Fichier</target>
             </trans-unit>
+            
+            <trans-unit id="47">
+                <source>Banner</source>
+                <target>Bannière</target>
+            </trans-unit>
+            
+            <trans-unit id="48">
+                <source>Add a new image</source>
+                <target>Ajouter une nouvelle image</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
