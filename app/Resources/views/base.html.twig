@@ -31,9 +31,11 @@
     <body>
      
        <div id="corps">
-           
+            {% block Corps %}
    		<div class="header">
+                    {% block PanelHeader %}
                     <div class="panelHeader">
+                        
   			<div class="memoraeHeader">
    
 				<ul class="nav nav-pills " role="tablist">
@@ -69,7 +71,9 @@
                                
                                 </div>#}
 		  	</div>
+                       
                     </div>
+                    {% endblock %}
                     <div id="carousel" >
     <!-- Slides Container -->
                         <div u="slides" class="slides" >
@@ -152,6 +156,7 @@
 		</div>
 	</div>
       </footer>
+    {% endblock %}
     </div>
     </body>
 </html>
