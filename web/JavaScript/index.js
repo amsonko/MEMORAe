@@ -177,7 +177,37 @@ var helpFunction={
             });   
          });
       }
+    },
+    selectLine:function($element,id){
+        if ($element.attr("id")==id){
+            $element.removeAttr("id");
+        }
+        else{
+             $("#"+id).removeAttr("id");
+            $element.attr("id",id);
+        }
+         
+      
+    },
+    createMenuAction:function(){
+        return $('<div class="pull-right actionAdmin">\
+            <a href="#"><button class="btn btn-default btn-sm btn-success" action="create" title="create"><span class="glyphicon glyphicon-plus"></span></button></a>\
+            <a href="#"><button class="btn btn-default btn-sm btn-primary disabled" action="edit" title="edit select element"><span class="glyphicon glyphicon-edit"></span></button></a>\
+            <a href="#"><button class="btn btn-default btn-sm btn-danger disabled" action="delete" title="remove select element"><span class="glyphicon glyphicon-remove"></span></button></a>\
+           </div>'); 
+    },
+    createEditAction:function(){
+        return $('<div class="pull-right actionAdmin">\
+            <a href="#"><button class="btn btn-default btn-sm btn-primary disabled" action="edit" title="edit select element"><span class="glyphicon glyphicon-edit"></span></button></a></div>'); 
+    },
+    createDivError:function(message){
+          $("#error").remove();
+          var $div=$('<div class="alert alert-danger" id="error" role="alert">\
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;\
+            </span></button>'+ message+'</div>');
+          return $div;
     }
+    
 };
 
      

@@ -1,232 +1,320 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-<head>
-<title>{{'Administrate'|trans}}</title>
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-</head>
-<body>
+{% extends '::base.html.twig' %}
 
-<h1 class="lists">{{'Home'|trans}}</h1>
-<table class="records_list">
-    {%if pages.home!=null %}
-        <thead>
-            <tr>
-                <th>{{'Name'|trans}}</th>
-                <th>{{'Path'|trans}}</th>
-                <th>{{'Content'|trans}}</th>
-                <th>{{'Type'|trans}}</th>
-            </tr>
-        </thead>
-            <tbody>
-                {% for media in pages.home %}
+{% block stylesheets %}
+     {{ parent()}}
+      <link rel="stylesheet" href="{{asset('css/admin.css')}}" />
+  {% endblock %}
+{% block javascripts %}
+     {{ parent()}}
+     <script src="{{asset('JavaScript/admin.js')}}"></script>
+  {% endblock %}
+  
+  
+{% block Corps %}
+    {% block PanelHeader %} 
+        {{ parent()}}
+        <br/>
+        <div id="infoError"></div>
+        <br/> <br/> 
+        
+     <div class="panel panel-default pageBlock">
+	<div class="panel-heading">
+           <h1 class="panel-title" >{{'Home'|trans}}</h1>
+           
+        </div>
+    <div class="panel-body">    
+        
+        <table class="table  table-bordered " >
+            {%if pages.home!=null %}
+                <thead>
                     <tr>
-                        {%include 'MEMORAeTextBundle:Admin:printMedia.html.twig' with{'media':media} %}
-                        {% if media is defined and media != null %}
-                            <td>{{ media.type }}</td>
-                            <td>
-                            <ul>
-                                <li>
-                                    <a href="{{ path('media_edit', { 'id': media.id}) }}">{{'edit'|trans}}</a>
-                                </li>
-                            </ul>
-                            </td>
-                        {% endif %}
+                        <th data-field="Numero">{{'Number'|trans}}</th>
+                        
+                        <th>{{'Content'|trans}}</th>
+                        <th>{{'Type'|trans}}</th>
+                        <th class="cle">cle</th>
                     </tr>
-                {% endfor %}
-        
-            </tbody>
-        {%endif %}
-    </table>
-        
-    <h1 class="lists">{{'What is MEMORAe?'|trans}}</h1>
-    <table class="records_list">
-        {% if pages.wim != null %}
-        <thead>
-            <tr>
-                <th>{{'Name'|trans}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        {% for section in pages.wim %}
-            <tr>
-                <td>{{ section.name }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('section_edit', { 'id': section.id}) }}">{{'edit'|trans}}</a>
-                        </li>
-                    </ul>
-                </td>            
-            </tr>
-        {% endfor %}
-        </tbody>
-        <tfoot>
-            <ul>
-                <li>
-                    <a href="{{ path('section_new', {'type':'video', 'page':2} ) }}">
-                        {{'Create a new section'|trans}}
-                    </a>
-                </li>
-            </ul>
-        </tfoot>
-        {% endif %}
-    </table>
+                </thead>
+                    <tbody>
+                        {% for media in pages.home %}
+                            <tr>
+                                {% if media is defined and media != null %}
+                                    <td>{{loop.index}}</td>
+                                    <td class="redText">{{media.content|raw}}</td>
+                                    <td>{{ media.type }}</td>
+                                     <td class="cle" typeBlock="media">{{ media.id}}</td>
+                                   
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
 
-    <h1 class="lists">{{'Documents'|trans}}</h1>
-    <table class="records_list">
-        {% if pages.doc != null %}
-        <thead>
-            <tr>
-                <th>{{'Name'|trans}}</th>
-                <th>{{'Path'|trans}}</th>
-                <th>{{'Summary'|trans}}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for media in pages.doc %}
-            <tr>
-                {%include 'MEMORAeTextBundle:Admin:printMedia.html.twig' with{'media':media} %}
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('media_edit', { 'id': media.id}) }}">{{'edit'|trans}}</a>
-                        </li>
-                    </ul>
-                </td>            
-            </tr>
-        {% endfor %}
-        </tbody>
-        <tfoot>
-            <ul>
-                <li>
-                    <a href="{{ path('media_new', {'type':'file', 'page':3}) }}">
-                        {{'Add a document'|trans}}
-                    </a>
-                </li>
-            </ul>
-        </tfoot>
-                    {% endif %}
-    </table>
-    
-    <h1 class="lists">{{'Videos'|trans}}</h1>
-    <table class="records_list">
-        {% if pages.video != null %}
-        <thead>
-            <tr>
-                <th>{{'Title'|trans}}</th>
-                <th>{{'Path'|trans}}</th>
-                <th>{{'Description'|trans}}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for media in pages.video %}
-            <tr>
-                {%include 'MEMORAeTextBundle:Admin:printMedia.html.twig' with{'media':media} %}
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('media_edit', { 'id': media.id}) }}">{{'edit'|trans}}</a>
-                        </li>
-                    </ul>
-                </td>            
-            </tr>
-        {% endfor %}
-        </tbody>
-        <tfoot>
-            <ul>
-                <li>
-                    <a href="{{ path('media_new', {'type':'video', 'page':4}) }}">
-                        {{'Add a video'|trans}}
-                    </a>
-                </li>
-            </ul>
-        </tfoot>
-                    {% endif %}
-    </table>
-    
-    <h1 class="lists">{{'Research projects'|trans}}</h1>
-    <table class="records_list">
-        {% if pages.projets != null and pages.projets.sections != null %}
-        <thead>
-            <tr>
-                <th>{{'Title'|trans}}</th>
-                <th>{{'Path'|trans}}</th>
-                <th>{{'Summary'|trans}}</th>
-                <th>{{'Project category'|trans}}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for section in pages.projets.sections %}
-            {%include 'MEMORAeTextBundle:Admin:printSection.html.twig' with{'section':section} %}
-        {% endfor %}
-        </tbody>
-        <tfoot>
-            <ul>
-                <li>
-                    <a href="{{ path('media_new', {'type':'file', 'page':5}) }}">
-                        {{'Add a project'|trans}}
-                    </a>
-                </li>
-            </ul>
-        </tfoot>
-                    {% endif %}
-    </table>
-                    
-    <h1 class="lists">{{'Thesis'|trans}}</h1>
-    <table class="records_list">
-        {% if pages.theses != null and pages.theses.sections != null %}
-        <thead>
-            <tr>
-                <th>{{'Title'|trans}}</th>
-                <th>{{'Path'|trans}}</th>
-                <th>{{'Summary'|trans}}</th>
-                <th>{{'Thesis category'|trans}}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for section in pages.theses.sections %}
-            {%include 'MEMORAeTextBundle:Admin:printSection.html.twig' with{'section':section} %}
-        {% endfor %}
-        </tbody>
-        <tfoot>
-            <ul>
-                <li>
-                    <a href="{{ path('media_new', {'type':'file', 'page':6}) }}">
-                        {{'Add a thesis'|trans}}
-                    </a>
-                </li>
-            </ul>
-        </tfoot>
-                    {% endif %}
-    </table>     
+                    </tbody>
+                {%endif %}
+            </table>
+    </div> 
+   </div>
+           {#**************  Page what is Memeorae ********************#}
+         <br/> <br/> 
+        
+     <div class="panel panel-default pageBlock">
+	<div class="panel-heading">
+           <h1 class="panel-title" >{{'What is MEMORAe?'|trans}}</h1>
+           
+        </div>
+    <div class="panel-body">    
+        
+        <table class="table  table-bordered " link="section/video-2/new" >
+             {% if pages.wim != null %}
+            <thead>
+                <tr>
+                        <th data-field="Numero">{{'Number'|trans}}</th>
+                         <th data-field="Name">{{'Name'|trans}}</th>
+                         <th data-field="language">{{'Language'|trans}}</th>
+                       
+                        <th data-field="cle" class="cle">cle</th>
+                </tr>
+                </thead>
+                    <tbody>
+                          {% for section in pages.wim %}
+                            <tr>
+                                    <td >{{loop.index}}</td>
+                                     <td>{{ section.name }}</td>
+                                      <td>{{ section.language}}</td>
+                                   
+                                     <td class="cle" typeBlock="section">{{section.id}}</td>
+                            </tr>
+                        {% endfor %}
 
-    <h1 class="lists">{{'Publications'|trans}}</h1>
-    <table class="records_list">
-        {% if pages.publications != null and pages.publications.sections != null %}
+                    </tbody>
+                {%endif %}
+            </table>
+    </div> 
+   </div>   
+
+            {#**************  Page Documents ********************#}
+    <br/> <br/> 
+        
+     <div class="panel panel-default pageBlock">
+	<div class="panel-heading">
+           <h1 class="panel-title" >{{'Documents'|trans}}</h1>
+           
+        </div>
+    <div class="panel-body">    
+        
+        <table class="table  table-bordered " link="media/file-3/new">
+             {% if pages.doc != null %}
+            <thead>
+                <tr>
+                        <th data-field="Numero">{{'Number'|trans}}</th>
+                         <th data-field="Name">{{'Name'|trans}}</th>
+                        
+                         <th data-field="Summary">{{'Summary'|trans}}</th>
+                          <th data-field="Path">{{'Path'|trans}}</th>
+                      
+                        <th data-field="cle" class="cle">cle</th>
+                </tr>
+                </thead>
+                    <tbody>
+                           {% for media in pages.doc %}
+                            <tr>
+                                    <td >{{loop.index}}</td>
+                                     <td>{{media.name }}</td>
+                                      
+                                       <td class="redText">{{ media.content|raw }}</td>
+                                       <td>{{media.path}}</td>
+                                     <td class="cle" typeBlock="media">{{media.id}}</td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                {%endif %}
+            </table>
+    </div> 
+   </div>   
+
+       {#**************  Page Videos ********************#}    
+        <br/> <br/> 
+        
+     <div class="panel panel-default pageBlock">
+	<div class="panel-heading">
+           <h1 class="panel-title" >{{'Videos'|trans}}</h1>
+           
+        </div>
+    <div class="panel-body">    
+        
+        <table class="table  table-bordered " link="media/video-4/new">
+             {% if pages.video != null %}
+            <thead>
+                <tr>
+                        <th data-field="Numero">{{'Number'|trans}}</th>
+                         <th data-field="Name">{{'Title'|trans}}</th>
+                        
+                         <th data-field="Summary">{{'Description'|trans}}</th>
+                          <th data-field="Path">{{'Path'|trans}}</th>
+                      
+                        <th data-field="cle" class="cle">cle</th>
+                </tr>
+                </thead>
+                    <tbody>
+                           {% for media in pages.video %}
+                            <tr>
+                                    <td >{{loop.index}}</td>
+                                     <td>{{media.name }}</td>
+                                      
+                                       <td class="redText">{{ media.content|raw }}</td>
+                                       <td>{{media.path}}</td>
+                                     <td class="cle" typeBlock="media">{{media.id}}</td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                {%endif %}
+            </table>
+    </div> 
+   </div>       
+       
+    {#**************  Research Projects ********************#}    
+    
+    <br/> <br/> 
+        
+     <div class="panel panel-default pageBlock">
+	<div class="panel-heading">
+           <h1 >{{'Research projects'|trans}}</h1>
+        </div>
+    <div class="panel-body">    
+        
+        <table class="table  table-bordered " link="media/file-5/new">
+            {% if pages.projets != null and pages.projets.sections != null %}
+             <thead>
+                <tr>
+                        <th data-field="Numero">{{'Number'|trans}}</th>
+                         <th data-field="Name">{{'Title'|trans}}</th>
+                        
+                         <th data-field="Summary">{{'Summary'|trans}}</th>
+                          <th data-field="Path">{{'Path'|trans}}</th>
+                           <th>{{'Project category'|trans}}</th>
+                        <th data-field="cle" class="cle">cle</th>
+                </tr>
+                </thead>
+                    <tbody>
+                              {% for section in pages.projets.sections %}
+                             {%for media in section.medias%}
+                            <tr>
+                                {% if media is defined and media != null %}
+
+                                    <td >{{loop.index}}</td>
+                                     <td>{{media.name }}</td>
+                                      
+                                       <td class="redText">{{media.content|raw }}</td>
+                                       <td>{{media.path}}</td>
+                                       <td>{{section.name}}</td>
+                                     <td class="cle" typeBlock="media">{{media.id}}</td>
+                            {% endif %}
+                                </tr>
+                        {% endfor %}
+                        {% endfor %}
+
+                    </tbody>
+                {%endif %}
+            </table>
+    </div> 
+   </div>       
+    
+    
+    {#**************  Thesis ********************#}    
+     <br/> <br/> 
+        
+     <div class="panel panel-default pageBlock">
+	<div class="panel-heading">
+           <h1 >{{'Thesis'|trans}}</h1>
+        </div>
+    <div class="panel-body">    
+        
+        <table class="table  table-bordered " link="media/file-6/new">
+            {% if pages.theses != null and pages.theses.sections != null %}
         <thead>
             <tr>
-                <th>{{'Title'|trans}}</th>
-                <th>{{'Path'|trans}}</th>
-                <th>{{'Summary'|trans}}</th>
-                <th>{{'Publication type'|trans}}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for section in pages.publications.sections %}
-            {%include 'MEMORAeTextBundle:Admin:printSection.html.twig' with{'section':section} %}
-        {% endfor %}
-        </tbody>
-        <tfoot>
-            <ul>
-                <li>
-                    <a href="{{ path('media_new', {'type':'file', 'page':7}) }}">
-                        {{'Add a publication'|trans}}
-                    </a>
-                </li>
-            </ul>
-        </tfoot>
-                    {% endif %}
-    </table>  
-</body>
-</html>
+                        <th data-field="Numero">{{'Number'|trans}}</th>
+                         <th data-field="Name">{{'Title'|trans}}</th>
+                        
+                         <th data-field="Summary">{{'Summary'|trans}}</th>
+                          <th data-field="Path">{{'Path'|trans}}</th>
+                           <th>{{'Thesis category'|trans}}</th>
+                        <th data-field="cle" class="cle">cle</th>
+                </tr>
+                </thead>
+                    <tbody>
+                                {% for section in pages.theses.sections %}
+                             {%for media in section.medias%}
+                            <tr>
+                                {% if media is defined and media != null %}
+
+                                    <td >{{loop.index}}</td>
+                                     <td>{{media.name }}</td>
+                                      
+                                       <td class="redText">{{media.content|raw }}</td>
+                                       <td>{{media.path}}</td>
+                                       <td>{{section.name}}</td>
+                                     <td class="cle" typeBlock="media">{{media.id}}</td>
+                            {% endif %}
+                                </tr>
+                        {% endfor %}
+                        {% endfor %}
+
+                    </tbody>
+                {%endif %}
+            </table>
+    </div> 
+   </div>       
+    
+
+    
+    {#**************  Publications ********************#} 
+    
+    <br/> <br/> 
+        
+     <div class="panel panel-default pageBlock">
+	<div class="panel-heading">
+           <h1 >{{'Publications'|trans}}</h1>
+        </div>
+    <div class="panel-body">    
+        
+        <table class="table  table-bordered " link="media/file-7/new">
+            {% if pages.publications != null and pages.publications.sections != null %}
+             <thead>
+                <tr>
+                        <th data-field="Numero">{{'Number'|trans}}</th>
+                         <th data-field="Name">{{'Title'|trans}}</th>
+                        
+                         <th data-field="Summary">{{'Summary'|trans}}</th>
+                          <th data-field="Path">{{'Path'|trans}}</th>
+                           <th>{{'Publication category'|trans}}</th>
+                        <th data-field="cle" class="cle">cle</th>
+                </tr>
+                </thead>
+                    <tbody>
+                             {% for section in pages.publications.sections %}
+                                 {%for media in section.medias%}
+                            <tr>
+                                {% if media is defined and media != null %}
+
+                                    <td >{{loop.index}}</td>
+                                     <td>{{media.name }}</td>
+                                      
+                                       <td class="redText">{{media.content|raw }}</td>
+                                       <td>{{media.path}}</td>
+                                       <td>{{section.name}}</td>
+                                     <td class="cle" typeBlock="media">{{media.id}}</td>
+                            {% endif %}
+                                </tr>
+                        {% endfor %}
+                        {% endfor %}
+
+                    </tbody>
+                {%endif %}
+            </table>
+    </div> 
+   </div>       
+    
+    {% endblock %}
+    {% endblock %}
