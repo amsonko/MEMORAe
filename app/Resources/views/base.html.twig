@@ -70,14 +70,13 @@
                                 </div>#}
 		  	</div>
                     </div>
+                    {% if carousel is defined %}
                     <div id="carousel" >
     <!-- Slides Container -->
                         <div u="slides" class="slides" >
-                            <div><img u="image" src="{{asset('images/carousel/01.jpg')}}" alt="image carousel"></div>
-                            <div><img u="image" src="{{asset('images/carousel/02.jpg')}}"  alt=" image carousel"></div>
-                             <div><img u="image" src="{{asset('images/carousel/03.jpg')}}"  alt=" image carousel"></div>
-                              <div><img u="image" src="{{asset('images/carousel/04.jpg')}}"  alt=" image carousel"></div>
-
+                            {% for img in carousel %}
+                                <div><img u="image" src="{{asset('images/carousel/'~img.path)}}" alt="image carousel"></div> 
+                            {% endfor %}
                         </div>
 		  
     
@@ -90,6 +89,7 @@
 
                         <a style="display: none" href="http://www.jssor.com">Image Slider</a>
                     </div>
+                    {% endif %}
                 </div>
 
 
