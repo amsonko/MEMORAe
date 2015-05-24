@@ -99,7 +99,7 @@ INSERT INTO Media (media_id, media_name, media_type, section_id, media_content, 
 COMMIT;
 
 
-alter sequence media_pk_seq restart with 30;
+alter sequence media_pk_seq restart with 50;
 
 alter sequence section_pk_seq restart with 20;
 

@@ -25,4 +25,4 @@ media_update:
 media_delete:
     path:     /{id}/delete
     defaults: { _controller: "MEMORAeTextBundle:MediaEntity:delete" }
-    methods:  [POST, DELETE]
+    methods:  [POST, DELETE, GET]

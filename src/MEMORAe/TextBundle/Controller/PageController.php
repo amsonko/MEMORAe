@@ -33,7 +33,7 @@ class PageController extends Controller
         
         //Cherchons les images du carousel
         
-        $carousel = $mediaRepository->findBy(array("page" => 100));
+        $carousel = $mediaRepository->findBy(array("page" => 100, "type" => "img"));
         switch($pageId)
         {
             case 1:

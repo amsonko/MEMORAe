@@ -31,13 +31,15 @@ class MediaEntityType extends AbstractType
                 $builder->add('path', 'text');
             }
             
-            if($this->type == "file"){
+            if($this->type == "file" || $this->type == "img"){
                 $builder->add('file', 'file', array('required' => false));
             }
         }
-        $builder->add('content', 'ckeditor');
+        if($this->type != "img"){
+            $builder->add('content', 'ckeditor');
+        }
         
-        if($this->pageId != null && $this->pageId >= 5){
+        if($this->pageId != null && $this->pageId != 100 && $this->pageId >= 5){
             $builder->add('section', 'entity', array(
                 'class' => 'MEMORAeTextBundle:SectionEntity',
                 'property' => 'name',

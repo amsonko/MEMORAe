@@ -42,10 +42,10 @@ class MediaEntityController extends Controller
                 $entity->setLanguage($language);
             }
             
-            if($type == 'file'){
+            $entity->setType($type);
+            if($type == 'file' || $type == 'img'){
                 $entity->uploadFile();
             }
-            $entity->setType($type);
             $em->persist($entity);
             $em->flush();
 
@@ -183,35 +183,56 @@ class MediaEntityController extends Controller
      * Deletes a MediaEntity entity.
      *
      */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+//    public function deleteAction(Request $request, $id)
+//    {
+//        $form = $this->createDeleteForm($id);
+//        $form->handleRequest($request);
+//
+//        if ($form->isValid()) {
+//            $em = $this->getDoctrine()->getManager();
+//            $entity = $em->getRepository('MEMORAeTextBundle:MediaEntity')->find($id);
+//
+//            if (!$entity) {
+//                throw $this->createNotFoundException('Unable to find MediaEntity entity.');
+//            }
+//            
+//            if(($entity->getType() == 'file' || $entity->getType() == 'img')&& $entity->getPath() != null){
+//                if($entity->getType() == 'file' && !unlink($entity->getAbsolutePath())){
+//                    throw $this->createAccessDeniedException('Impossible de supprimer le fichier '.$entity->getPath());
+//                }
+//                if($entity->getType() == 'img' && !unlink($entity->getAbsoluteImgPath())){
+//                    throw $this->createAccessDeniedException("Impossible de supprimer l'image ".$entity->getPath());
+//                }
+//            }
+//            $em->remove($entity);
+//            
+//            $em->flush();
+//        }
+//
+//        return $this->redirect($this->generateUrl('accueil_admin'));
+//    }
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('MEMORAeTextBundle:MediaEntity')->find($id);
+    
+    public function deleteAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('MEMORAeTextBundle:MediaEntity')->find($id);
 
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find MediaEntity entity.');
-            }
-            
-            if($entity->getType() == 'file' && $entity->getPath() != null){
-                if(!unlink($entity->getAbsolutePath())){
-                    throw $this->createAccessDeniedException('Impossible de supprimer le fichier '.$entity->getPath());
-                }
-                if(!unlink($entity->getAbsoluteThumbnailPath())){
-                    throw $this->createAccessDeniedException('Impossible de supprimer le fichier '.$entity->getPath());
-                }
-            }
-            $em->remove($entity);
-            
-            $em->flush();
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find MediaEntity entity.');
         }
+        if(($entity->getType() == 'file' || $entity->getType() == 'img')&& $entity->getPath() != null){
+            if($entity->getType() == 'file' && !unlink($entity->getAbsolutePath())){
+                throw $this->createAccessDeniedException('Impossible de supprimer le fichier '.$entity->getPath());
+            }
+            if($entity->getType() == 'img' && !unlink($entity->getAbsoluteImgPath())){
+                throw $this->createAccessDeniedException("Impossible de supprimer l'image ".$entity->getPath());
+            }
+        }
+        $em->remove($entity);
 
+        $em->flush();
         return $this->redirect($this->generateUrl('accueil_admin'));
     }
-
     /**
      * Creates a form to delete a MediaEntity entity by id.
      *
