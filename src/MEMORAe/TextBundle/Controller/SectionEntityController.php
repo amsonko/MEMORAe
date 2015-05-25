@@ -75,7 +75,10 @@ class SectionEntityController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Create',
+            'attr'=>array(
+                'class'=>"btn btn-primary"
+            )));
 
         return $form;
     }
@@ -116,12 +119,12 @@ class SectionEntityController extends Controller
         }
 
         $editForm = $this->createEditForm($section, $media);
-        $deleteForm = $this->createDeleteForm($media->getId());
+       
 
         return $this->render('MEMORAeTextBundle:SectionEntity:edit.html.twig', array(
             'entity'      => $section,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'edit_form'   => $editForm->createView()
+           
         ));
     }
 
@@ -139,7 +142,10 @@ class SectionEntityController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Update',
+            'attr'=>array(
+                'class'=>"btn btn-primary"
+            )));
 
         return $form;
     }
@@ -161,7 +167,7 @@ class SectionEntityController extends Controller
             throw $this->createNotFoundException('Unable to find SectionEntity entity.');
         }
         
-        $deleteForm = $this->createDeleteForm($id);
+      
         $editForm = $this->createEditForm($section, $media);
         $editForm->handleRequest($request);
 
@@ -173,8 +179,8 @@ class SectionEntityController extends Controller
 
         return $this->render('MEMORAeTextBundle:SectionEntity:edit.html.twig', array(
             'entity'      => $section,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'edit_form'   => $editForm->createView()
+      
         ));
     }
     /**
@@ -183,7 +189,7 @@ class SectionEntityController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($id);
+      
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -203,20 +209,5 @@ class SectionEntityController extends Controller
         return $this->redirect($this->generateUrl('accueil_admin'));
     }
 
-    /**
-     * Creates a form to delete a SectionEntity entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('section_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
-    }
+   
 }

@@ -1,5 +1,24 @@
-{% block body -%}
+{% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+     {{ parent()}}
+      <link rel="stylesheet" href="{{asset('css/admin.css')}}" />
+  {% endblock %}
+{% block javascripts %}
+     {{ parent()}}
+     <script src="{{asset('JavaScript/admin.js')}}"></script>
+  {% endblock %}
+  
+{% block Corps %}
+    <br/>
+    <div class="col-sm-1">
+      <a href="{{ path('accueil_admin') }}">
+            <button type="button" class="btn btn-primary"  aria-label="Left Align">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  {{'Back'|trans}}</button>
+     </a>
+    </div>
+     
+      
     {%if entity.type == 'file'%}
         <form action="{{ path('media_create', { 'type': entity.type }) }}" method="post" {{ form_enctype(form) }}>
     {%endif%}
@@ -8,11 +27,5 @@
         </form>
     {%endif%}
 
-    <ul class="record_actions">
-    <li>
-        <a href="{{ path('accueil_admin') }}">
-            {{'Back'|trans}}
-        </a>
-    </li>
-</ul>
+    
 {% endblock %}

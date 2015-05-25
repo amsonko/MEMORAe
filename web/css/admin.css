@@ -35,3 +35,33 @@ tbody tr{
     width:90%;
     margin-left:5%;
 }
+form {
+    
+ //   border:1px solid red;
+    width:90%;
+    margin-left:5%;
+    margin-top:3%;
+    height:95%;
+   
+}
+
+.form-group{
+    border:1px solid white;
+}
+.form-group label{
+     margin-left:3% !important;
+     float: left;
+ 
+}
+textarea{
+    margin-left:3% !important;
+    max-width:90%;
+    border:1px solid yellow;
+    height:auto;
+    
+}
+input[type='file']{
+    
+    background-color: buttonface;
+   
+}

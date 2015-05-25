@@ -1,24 +1,23 @@
-{% block body -%}
-{#    {{ form_start(edit_form) }}
+{% extends '::base.html.twig' %}
 
-    <div>
-        {{ form_label(edit_form.name, 'Titre de la section') }}
-        {{ form_errors(edit_form.name) }}
-        {{ form_widget(edit_form.name) }}
+{% block stylesheets %}
+     {{ parent()}}
+      <link rel="stylesheet" href="{{asset('css/admin.css')}}" />
+  {% endblock %}
+{% block javascripts %}
+     {{ parent()}}
+     <script src="{{asset('JavaScript/admin.js')}}"></script>
+  {% endblock %}
+  
+{% block Corps %}
+    <br/>
+    <div class="col-sm-1">
+      <a href="{{ path('accueil_admin') }}">
+            <button type="button" class="btn btn-primary"  aria-label="Left Align">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  {{'Back'|trans}}</button>
+     </a>
     </div>
-
-    {% for media in edit_form.medias %}
-        {{form(media)}}
-        
-    {% endfor %}
-    {{ form_end(edit_form) }}#}
-{{form(edit_form)}}
-    <ul class="record_actions">
-    <li>
-        <a href="{{ path('accueil_admin') }}">
-            {{'Back'|trans}}
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    
+        {{form(edit_form)}}
+    
 {% endblock %}

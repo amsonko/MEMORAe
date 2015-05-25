@@ -32,7 +32,8 @@ class SectionEntityType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MEMORAe\TextBundle\Entity\SectionEntity'
+            'data_class' => 'MEMORAe\TextBundle\Entity\SectionEntity',
+            'class'=>'form-horizontal'
         ));
     }
 

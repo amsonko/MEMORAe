@@ -72,7 +72,10 @@ class MediaEntityController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Create',
+            'attr'=>array(
+                'class'=>"btn btn-primary"
+            )));
 
         return $form;
     }
@@ -111,12 +114,11 @@ class MediaEntityController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('MEMORAeTextBundle:MediaEntity:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'edit_form'   => $editForm->createView()
+            
         ));
     }
 
@@ -143,7 +145,10 @@ class MediaEntityController extends Controller
             'action' => $this->generateUrl('media_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Update',
+            'attr'=>array(
+                'class'=>"btn btn-primary"
+            )));
         return $form;
     }
     /**
@@ -160,7 +165,7 @@ class MediaEntityController extends Controller
             throw $this->createNotFoundException('Unable to find MediaEntity entity.');
         }
         
-        $deleteForm = $this->createDeleteForm($id);
+ 
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -175,8 +180,8 @@ class MediaEntityController extends Controller
         }
         return $this->render('MEMORAeTextBundle:MediaEntity:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'edit_form'   => $editForm->createView()
+            
         ));
     }
     /**
@@ -240,13 +245,13 @@ class MediaEntityController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('media_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
-    }
+//    private function createDeleteForm($id)
+//    {
+//        return $this->createFormBuilder()
+//            ->setAction($this->generateUrl('media_delete', array('id' => $id)))
+//            ->setMethod('DELETE')
+//            ->add('submit', 'submit', array('label' => 'Delete'))
+//            ->getForm()
+//        ;
+//    }
 }

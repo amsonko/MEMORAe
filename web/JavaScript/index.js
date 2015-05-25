@@ -206,6 +206,21 @@ var helpFunction={
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;\
             </span></button>'+ message+'</div>');
           return $div;
+    },
+    
+    handleCssForm:function($form){
+        
+        var $div=$form.children("div");
+        $div.find("div").each(function(cle,element){
+            var $this=$(element);
+            $this.addClass("form-group").after("<br/><br/>");
+            $this.children("label").addClass("col-sm-2 control-label");
+            $this.children("input:text").addClass("form-control").wrap("<div class='col-sm-3'></div>");
+             $this.children("input:file").wrap("<div class='col-sm-3' ></div>");
+            
+            $this.children("textarea").addClass("form-control").before("<br/>");
+        });
+ 
     }
     
 };
