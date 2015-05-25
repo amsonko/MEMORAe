@@ -94,6 +94,8 @@ $(document).ready(function(){
 
    });
    
+   
+   helpFunction.handleCssForm($("form"));   
 });
 
 

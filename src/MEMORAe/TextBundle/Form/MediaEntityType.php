@@ -27,6 +27,7 @@ class MediaEntityType extends AbstractType
         if($this->type != "text"){
             $builder->add('name', 'text');
             
+            
             if($this->type == "video"){
                 $builder->add('path', 'text');
             }
@@ -35,9 +36,7 @@ class MediaEntityType extends AbstractType
                 $builder->add('file', 'file', array('required' => false));
             }
         }
-        if($this->type != "img"){
-            $builder->add('content', 'ckeditor');
-        }
+        
         
         if($this->pageId != null && $this->pageId != 100 && $this->pageId >= 5){
             $builder->add('section', 'entity', array(
@@ -52,6 +51,9 @@ class MediaEntityType extends AbstractType
                 },
             ));
         }
+        if($this->type != "img"){
+            $builder->add('content', 'ckeditor');
+        }
                
     }
     
@@ -61,7 +63,8 @@ class MediaEntityType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MEMORAe\TextBundle\Entity\MediaEntity'
+            'data_class' => 'MEMORAe\TextBundle\Entity\MediaEntity',
+            'class'=>'form-horizontal'
         ));
     }
 

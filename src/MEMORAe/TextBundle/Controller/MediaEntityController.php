@@ -72,7 +72,10 @@ class MediaEntityController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Create',
+            'attr'=>array(
+                'class'=>"btn btn-primary"
+            )));
 
         return $form;
     }
@@ -141,7 +144,10 @@ class MediaEntityController extends Controller
             'action' => $this->generateUrl('media_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Update',
+            'attr'=>array(
+                'class'=>"btn btn-primary"
+            )));
         return $form;
     }
     /**
