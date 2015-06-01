@@ -76,6 +76,3 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: MEMORAe\UserBundle\Entity\AdminEntity
-    registration:
-        form:
-            type: memorae_user_registration

@@ -1,12 +1,5 @@
-{% extends 'MEMORAeTextBundle::index.html.twig' %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Une erreur est survenue : {{ status_text }}</title>
-</head>
-<body>
-    <h1>Oups! Une erreur est survenue</h1>
-    <h2>Le serveur a retourné une erreur "{{ status_code }} {{ status_text }}".</h2>
-</body>
-</html>
+{% extends '::base.html.twig' %}
+{% block Corps %}
+    <h1>{{'Oops! An error has occured'|trans}}</h1>
+    <h2>{{'The server has returned'|trans}}"{{ status_code }} {{ status_text }}".</h2>
+{% endblock %}

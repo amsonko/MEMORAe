@@ -241,6 +241,21 @@
                 <source>Add a new image</source>
                 <target>Ajouter une nouvelle image</target>
             </trans-unit>
+            
+            <trans-unit id="49">
+                <source>Oops! An error has occured</source>
+                <target>Une erreur est survenue</target>
+            </trans-unit>
+            
+            <trans-unit id="50">
+                <source>The server has returned</source>
+                <target>Le serveur a retourné une erreur</target>
+            </trans-unit>
+            
+            <trans-unit id="51">
+                <source>The page you are trying to go to doesn't exist</source>
+                <target>La page sur laquelle vous essayez d'aller n'existe pas!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

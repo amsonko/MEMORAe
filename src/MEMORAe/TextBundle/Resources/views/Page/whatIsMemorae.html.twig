@@ -19,15 +19,30 @@
                     <section class="ac-content ui-helper-reset ui-widget-content">
                         <div class="row accordionContent">
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="thumbnail blockVideo">
+                                
                                     {%for media in section.medias %}
-                                        <iframe class="pull-left" src="{{media.path}}"></iframe>
-                                         <div class="caption">
-                                             <h4>{{media.name|raw}}</h4>
-                                             <p>{{media.content|raw}}</p>
-                                         </div>
+                                        {% if media.path != null %}
+                                            <div class="thumbnail blockVideo">
+                                            <iframe class="pull-left" src="{{media.path}}"></iframe>
+                                            <div class="caption">
+                                                <h4>{{media.name|raw}}</h4>
+                                                <p>{{media.content|raw}}</p>
+                                            </div>
+                                            </div>
+                                        {% else %}
+                                            <div class="thumbnail blockImageTexte">
+                                                    <img src="{{asset('images/construction.png')}}" class=" pull-left img-rounded"
+                                                     alt="Generic placeholder thumbnail">
+                                                    <div class="caption">
+                                                        <h4>{{media.name}}</h4>
+                                                        <p>{{media.content|raw}}</p>
+                                                    </div>
+                                            </div>
+                                        {% endif %}                        
+                                        
+                                        
                                     {%endfor%}
-                                </div>
+                                
                             </div>
                         </div>
                     </section>

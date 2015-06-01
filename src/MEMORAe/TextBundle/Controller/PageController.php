@@ -48,7 +48,7 @@ class PageController extends Controller
                 if (!$video) {
                     throw $this->createNotFoundException('Unable to find any video for homepage in '.$language);
                 }
-                return $this->render("MEMORAeTextBundle:Page:home.html.twig", array('text' =>$text, 'video'=>$video, 'carousel' => $carousel));
+                return $this->render("MEMORAeTextBundle:Page:home.html.twig", array('text' =>$text, 'video'=>$video, 'carousel' => $carousel, 'page' => $pageId));
                 
             case 2:
                 $sections = $sectionRepository->findSectionsByPage($pageId, $language, "video");
@@ -57,7 +57,7 @@ class PageController extends Controller
                     throw $this->createNotFoundException('Unable to find any section for the page what is memorae');
                 }
                 
-                return $this->render("MEMORAeTextBundle:Page:whatIsMemorae.html.twig", array('sections' =>$sections, 'carousel' => $carousel));
+                return $this->render("MEMORAeTextBundle:Page:whatIsMemorae.html.twig", array('sections' =>$sections, 'carousel' => $carousel, 'page' => $pageId));
             
             case 3:
                 $media = $mediaRepository->findBy(array("page" => $pageId, "type" => "file", "language" => $language));
@@ -65,35 +65,34 @@ class PageController extends Controller
                 if (!$media) {
                     throw $this->createNotFoundException('Unable to find any files for documents page in '.$language);
                 }
-                return $this->render("MEMORAeTextBundle:Page:document.html.twig", array('doc' =>$media, 'carousel' => $carousel));
+                return $this->render("MEMORAeTextBundle:Page:document.html.twig", array('doc' =>$media, 'carousel' => $carousel, 'page' => $pageId));
             case 4:
                 $media = $mediaRepository->findBy(array("page" => $pageId, "type" => "video", "language" => $language));
                 
                 if (!$media) {
                     throw $this->createNotFoundException('Unable to find any videos for videos page in '.$language);
                 }
-                return $this->render("MEMORAeTextBundle:Page:video.html.twig", array('video' =>$media, 'carousel' => $carousel));
+                return $this->render("MEMORAeTextBundle:Page:video.html.twig", array('video' =>$media, 'carousel' => $carousel, 'page' => $pageId));
             case 5:
                 $sections = $sectionRepository->findSectionsByPage($pageId, $language);
                 
                 if (!$sections) {
                     throw $this->createNotFoundException('Unable to find any section for the research page in '.$language);
                 }
-                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$sections, 'carousel' => $carousel));
+                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$sections, 'carousel' => $carousel, 'page' => $pageId));
              case 6:
                  $sections = $sectionRepository->findSectionsByPage($pageId, $language);
                 
                 if (!$sections) {
                     throw $this->createNotFoundException('Unable to find any section for the thesis page in '.$language);
                 }
-                return $this->render("MEMORAeTextBundle:Page:these.html.twig", array('theses' =>$sections, 'carousel' => $carousel));
+                return $this->render("MEMORAeTextBundle:Page:these.html.twig", array('theses' =>$sections, 'carousel' => $carousel, 'page' => $pageId));
             case 7:
                  $sections = $sectionRepository->findBy(array("page" => $pageId));
-               // echo "taille  pour cette section ".count($sections);
                 if (!$sections) {
                     throw $this->createNotFoundException('Unable to find any section for the page what is memorae');
                 }
-                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$sections,'publication'=>true, 'carousel' => $carousel));
+                return $this->render("MEMORAeTextBundle:Page:recherche.html.twig", array('recherche' =>$sections,'publication'=>true, 'carousel' => $carousel, 'page' => $pageId));
             default : 
                 throw $this->createNotFoundException('Unable too reach the page with the id '.$pageId);
         }

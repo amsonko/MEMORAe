@@ -8,7 +8,7 @@ var helpFunction={
                 $BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
                     $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
                     $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
-                    $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $AutoCenter: 1,                                //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
                     $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
                     $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
                     $SpacingX: 10,                                  //[Optional] Horizontal space between each item in pixel, default value is 0
@@ -218,7 +218,7 @@ var helpFunction={
             $this.children("input:text").addClass("form-control").wrap("<div class='col-sm-3'></div>");
              $this.children("input:file").wrap("<div class='col-sm-3' ></div>");
             
-            $this.children("textarea").addClass("form-control").before("<br/>");
+            $this.children("textarea").addClass("form-control").before("<br/><br/>");
         });
  
     }

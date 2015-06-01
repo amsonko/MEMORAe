@@ -10,15 +10,17 @@
    <div class="row" id="videos">
        
        {% for contenu in video %}
-            <div class="col-xs-4 col-sm-4 col-md-3">
-                <div class="thumbnail">
-                    <iframe src="{{contenu.path}}"></iframe>
-                    <div class="caption videoCaption">
-                        <h4>{{contenu.name}}</h4>
-                        <p>{{contenu.content|raw}}</p>
-                    </div>
+           {% if contenu.path != null %}
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                        <div class="thumbnail">
+                            <iframe src="{{contenu.path}}"></iframe>
+                            <div class="caption videoCaption">
+                                <h4>{{contenu.name}}</h4>
+                                <p>{{contenu.content|raw}}</p>
+                            </div>
+                        </div>  
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}		
         </div>
     

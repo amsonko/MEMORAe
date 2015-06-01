@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Une erreur est survenue : {{ status_text }}</title>
-</head>
-<body>
-    <h1>La page sur laquelle vous essayez d'aller n'existe pas!</h1>
-    <h2>Le serveur a retourné une erreur "{{ status_code }} {{ status_text }}".</h2>
-</body>
-</html>
+{% extends '::base.html.twig' %}
+{% block Corps %}
+    <h1>{{'The page you are trying to go to does not exist'|trans}}</h1>
+    <h2>{{'The server has returned'|trans}}"{{ status_code }} {{ status_text }}".</h2>
+{% endblock %}

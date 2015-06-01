@@ -40,8 +40,19 @@
    
 				<ul class="nav nav-pills " role="tablist">
 					<li class="logo"><img  src="{{asset('images/memorae.png')}}" alt="logo memorae"></li>
+                                        {% if page is defined %}
+                                        {% set chemin='memorae_homepage_avec_langue' %}
+                                        {% else %}
+                                        {% set chemin='accueil_admin' %}
+                                        {% endif%}
                                         <li class="langue"> 
-                                            <a  href="{{ path('memorae_homepage_avec_langue', {'_locale': 'fr'})}}" >
+                                            
+                                            {% if page is defined %}
+                                                <a  href="{{ path(chemin, {'_locale': 'fr', 'id':page})}}" >
+                                            {% else %}
+                                                <a  href="{{ path(chemin, {'_locale': 'fr'})}}" >
+                                            {% endif %}
+                                            
                                                 {% if app.request.locale=='fr' %}
                                                 <img class="langueActive" src="{{asset('images/fr.png')}}" alt="logo fr">
                                                 {% else %}
@@ -51,7 +62,11 @@
                                         </li>
                                                 
                                         <li class="langue"> 
-                                            <a  href="{{ path('memorae_homepage_avec_langue', {'_locale': 'en'})}}" >
+                                            {% if page is defined %}
+                                                <a  href="{{ path(chemin, {'_locale': 'en', 'id':page})}}" >
+                                            {% else %}
+                                                <a  href="{{ path(chemin, {'_locale': 'en'})}}" >
+                                            {% endif %}
                                                 {% if app.request.locale != 'fr' %}
                                                 <img class="langueActive" src="{{asset('images/gb.png')}}" alt="logo gb">
                                                 {% else %}

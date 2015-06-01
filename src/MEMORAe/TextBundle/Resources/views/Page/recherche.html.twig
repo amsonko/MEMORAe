@@ -17,8 +17,9 @@
                 {% for section in recherche %}
                     {% for projet in section.medias %}
                         <div class="thumbnail blockImageTexte">
-                            <img src="{{asset('images/'~projet.path)}}" class=" pull-left img-rounded"
-                             alt="Generic placeholder thumbnail">
+                            <a href="{{asset('uploads/documents/' ~ projet.path)}}" target="_blank">
+                                <img src="{{asset('images/default.png')}}" alt="Generic placeholder thumbnail" class=" pull-left img-rounded"/>
+                            </a>
                             <div class="caption">
                                 <h4>{{projet.name}}</h4>
                                 <p>{{projet.content|raw}}</p>
@@ -38,8 +39,9 @@
                 {% for section in recherche %}
                     {% for projet in section.medias %}
                         <div class="thumbnail blockImageTexte">
-                            <img src="{{asset('images/'~projet.path)}}" class=" pull-left img-rounded"
-                             alt="Generic placeholder thumbnail">
+                            <a href="{{asset('uploads/documents/' ~ projet.path)}}" target="_blank">
+                                <img src="{{asset('images/default.png')}}" alt="Generic placeholder thumbnail" class=" pull-left img-rounded"/>
+                            </a>
                             <div class="caption">
                                 <h4>{{projet.name}}</h4>
                                 <p>{{projet.content|raw}}</p>

@@ -29,7 +29,7 @@ class MediaEntityType extends AbstractType
             
             
             if($this->type == "video"){
-                $builder->add('path', 'text');
+                $builder->add('path', 'text', array('required' => false));
             }
             
             if($this->type == "file" || $this->type == "img"){

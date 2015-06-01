@@ -7,7 +7,7 @@ $(document).ready(function(){
    $(".blockImageTexte").each(function(){
        var $this=$(this);
   
-        helpFunction.expandAndCollapse($this,1);
+        helpFunction.expandAndCollapse($this,3);
      });
   
 });
